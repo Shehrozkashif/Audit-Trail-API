@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audit Trail Logger</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            margin-top: 60px;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        form, .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="date"], select {
+            padding: 10px 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            flex: 1;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 16px;
+            font-size: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        ul#logs {
+            list-style: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        ul#logs li {
+            background: #ecf0f1;
+            margin-bottom: 10px;
+            padding: 12px 16px;
+            border-left: 6px solid #3498db;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        ul#logs li span {
+            display: block;
+            font-size: 13px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .btn-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn-row button {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Audit Trail Logger</h1>
+
+        <!-- Log Entry Form -->
+        <form id="logForm">
+            <input type="text" id="user" placeholder="Enter user" required />
+            <input type="text" id="action" placeholder="Enter action" required />
+            <select id="logType">
+                <option value="info">Info</option>
+                <option value="warning">Warning</option>
+                <option value="error">Error</option>
+            </select>
+            <button type="submit">Log Action</button>
+        </form>
+
+        <!-- Filters -->
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search user or action" />
+            <input type="date" id="fromDate" />
+            <input type="date" id="toDate" />
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-row">
+            <button onclick="fetchLogs()">Refresh Logs</button>
+            <button onclick="exportLogs()">Export Logs</button>
+            <button onclick="clearLogs()">Clear Logs</button>
+        </div>
+
+        <ul id="logs"></ul>
+    </div>
+
+    <script>
+        let allLogs = [];
+
+        document.getElementById("logForm").onsubmit = async function (e) {
+            e.preventDefault();
+            const user = document.getElementById("user").value;
+            const action = document.getElementById("action").value;
+            const type = document.getElementById("logType").value;
+
+            await fetch("http://127.0.0.1:5000/log", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ user, action, type })
+            });
+
+            document.getElementById("logForm").reset();
+            fetchLogs();
+        };
+
+        async function fetchLogs() {
+            const res = await fetch("http://127.0.0.1:5000/logs");
+            allLogs = await res.json();
+            displayLogs();
+        }
+
+        function displayLogs() {
+            const search = document.getElementById("search").value.toLowerCase();
+            const fromDate = document.getElementById("fromDate").value;
+            const toDate = document.getElementById("toDate").value;
+            const list = document.getElementById("logs");
+            list.innerHTML = "";
+
+            allLogs
+                .filter(log => {
+                    const matchSearch =
+                        log.user.toLowerCase().includes(search) ||
+                        log.action.toLowerCase().includes(search);
+                    const logDate = new Date(log.timestamp).toISOString().split("T")[0];
+                    const afterFrom = !fromDate || logDate >= fromDate;
+                    const beforeTo = !toDate || logDate <= toDate;
+                    return matchSearch && afterFrom && beforeTo;
+                })
+                .reverse()
+                .forEach(log => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <strong>${log.user}</strong> (${log.type.toUpperCase()}): ${log.action}
+                        <span>${new Date(log.timestamp).toLocaleString()}</span>`;
+                    list.appendChild(li);
+                });
+        }
+
+        function exportLogs() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allLogs, null, 2));
+            const a = document.createElement("a");
+            a.setAttribute("href", dataStr);
+            a.setAttribute("download", "audit_log.json");
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        }
+
+        async function clearLogs() {
+            if (!confirm("Are you sure you want to delete all logs?")) return;
+
+            await fetch("http://127.0.0.1:5000/clear", { method: "POST" });
+            fetchLogs();
+        }
+
+        document.getElementById("search").oninput =
+        document.getElementById("fromDate").onchange =
+        document.getElementById("toDate").onchange = displayLogs;
+
+        fetchLogs();
+    </script>
+</body>
+</html>
