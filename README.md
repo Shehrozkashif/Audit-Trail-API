@@ -34,7 +34,10 @@ A modular Python application for managing, storing, and interacting with an **au
 - 📊 Class diagram included for understanding structure (`diagrams/class_diagram.png`)
 
 ---
-
+## 🛠️ inatall with pip
+```
+pip install audit-trail-lib
+```
 ## 🛠️ Setup Instructions
 
 ### 🔨 Requirements
