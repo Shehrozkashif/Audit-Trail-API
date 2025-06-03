@@ -1,12 +1,16 @@
 .
 ├── api
+│   ├── api.py
 │   ├── db.json
 │   ├── __init__.py
-│   ├── logger.py
-│   └── __pycache__
-│       ├── __init__.cpython-312.pyc
-│       └── logger.cpython-312.pyc
+│   └── logger.py
 ├── app.py
+├── audit_trail_lib.egg-info
+│   ├── dependency_links.txt
+│   ├── PKG-INFO
+│   ├── requires.txt
+│   ├── SOURCES.txt
+│   └── top_level.txt
 ├── client_app
 │   └── client.py
 ├── diagrams
@@ -16,9 +20,140 @@
 │   └── api_documentation.md
 ├── frontend
 │   └── index.html
+├── .git
+│   ├── branches
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── FETCH_HEAD
+│   ├── HEAD
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── sendemail-validate.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── main
+│   │       ├── remotes
+│   │       │   └── origin
+│   │       │       ├── HEAD
+│   │       │       └── main
+│   │       └── stash
+│   ├── objects
+│   │   ├── 03
+│   │   │   └── 09a61c16fa0edf274c053e74a802c3ac41498e
+│   │   ├── 19
+│   │   │   └── 287e68bab69ab854562e55ca29cb865b31597f
+│   │   ├── 1f
+│   │   │   └── e1f8a8a525c39502d4aedd331e86ca71fc6fe1
+│   │   ├── 4b
+│   │   │   └── e88a22da2b0c60ea1a395b525bb615db94c4cb
+│   │   ├── 58
+│   │   │   └── 0d9b619c9204d6dcd7b07618928764038ad925
+│   │   ├── 5b
+│   │   │   └── aa6f49945a2e754be1eac0f1d42000e854c61e
+│   │   ├── 5c
+│   │   │   └── 815428df154c229fcf35a27c521741cba0ee67
+│   │   ├── 5d
+│   │   │   └── 9ef104a2fc26264b5d0481e056d2c9b7e6fe4d
+│   │   ├── 64
+│   │   │   └── d8e69d1765c6c2f3ce831151f26ff9389354e3
+│   │   ├── 66
+│   │   │   └── a7f35ba351c2670b74f48ea46d9263080a1d34
+│   │   ├── 67
+│   │   │   └── 2c43e9da63111ddc0ac654705d82f2b1141e10
+│   │   ├── 6a
+│   │   │   └── bd41be819cec4b1fb2b37af35c7ae5f1758f97
+│   │   ├── 6c
+│   │   │   ├── c57204a410718bb797fa52c7e8ff3ff405af06
+│   │   │   └── d40a7f6267717b8d56f1ae645ecdb51e4901c0
+│   │   ├── 72
+│   │   │   └── b75ea990e2384936a46ec183949a98f4d0a070
+│   │   ├── 7d
+│   │   │   └── 34d9b503400fee6c10d1ab4888471394d82031
+│   │   ├── 88
+│   │   │   └── 07b62e9b27a7958b9a78c5c489a0e8cc6b0b6a
+│   │   ├── 96
+│   │   │   └── 64ae6853c7437f03c709e123df0d91e56b0014
+│   │   ├── 97
+│   │   │   └── 59e7c8896592b6eb5cc9fedcaf0fa524cdd2c8
+│   │   ├── 98
+│   │   │   └── 988748bda8ea44c290d5c70c1531aa293a9263
+│   │   ├── a3
+│   │   │   └── 032b64aeca902c9ead0b274de75ab2405c3046
+│   │   ├── aa
+│   │   │   └── 8a37c4f3e89177983fb91c724da85d25e53c32
+│   │   ├── b7
+│   │   │   └── 326d9215eacc6670934f1ffd52bc57e4152dd3
+│   │   ├── b9
+│   │   │   └── 3c077eecfa1f4e9a6fdbfbad4911c973f14713
+│   │   ├── bc
+│   │   │   └── 37e5dfc078ee2983a01c85db27ebeff62683d5
+│   │   ├── c2
+│   │   │   └── fc1803424e96301848b375f9ba6153a738625e
+│   │   ├── c8
+│   │   │   └── 32e495c3e8558c9263d2170b934815f3569593
+│   │   ├── ce
+│   │   │   └── 590cfb99c28dcfa8d04455adecc3bcc88f0bb2
+│   │   ├── d2
+│   │   │   └── 910203dd312282f6743d6eb8784b144223a9d5
+│   │   ├── d3
+│   │   │   └── 41eed6eef0e59ecf9a4262ab065dde2144336c
+│   │   ├── e3
+│   │   │   └── 9d2a34bdd69859b423127b6e36af127138cffc
+│   │   ├── e6
+│   │   │   └── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+│   │   ├── eb
+│   │   │   └── 431cd8153363720cfd45012f40297c22b8f436
+│   │   ├── f0
+│   │   │   └── 51086d31ac81ed18f4597c56c2d02c1b1819c9
+│   │   ├── f4
+│   │   │   └── b8896692a78afb7d8c93cd1258ec961dcd457d
+│   │   ├── f7
+│   │   │   └── f8c6e9d3ff2e7c5e2f2319c353343127c52d2b
+│   │   ├── fe
+│   │   │   └── 8d195c3f1c5f831aabc695d2ea3a429dde1783
+│   │   ├── info
+│   │   └── pack
+│   │       ├── pack-95d43769d72b24936dc0cc2c07d3f71a02b298e4.idx
+│   │       ├── pack-95d43769d72b24936dc0cc2c07d3f71a02b298e4.pack
+│   │       └── pack-95d43769d72b24936dc0cc2c07d3f71a02b298e4.rev
+│   ├── ORIG_HEAD
+│   ├── packed-refs
+│   └── refs
+│       ├── heads
+│       │   └── main
+│       ├── remotes
+│       │   └── origin
+│       │       ├── HEAD
+│       │       └── main
+│       ├── stash
+│       └── tags
+├── .gitignore
 ├── LICENSE
+├── MANIFEST.in
+├── pyproject.toml
 ├── README.md
 ├── requirements.txt
+├── setup.py
+├── test
+│   └── test_logger.py
 └── venv
     ├── bin
     │   ├── activate
@@ -38,13 +173,30 @@
     ├── lib
     │   └── python3.12
     │       └── site-packages
+    │           ├── annotated_types
+    │           │   ├── __init__.py
+    │           │   ├── py.typed
+    │           │   └── test_cases.py
+    │           ├── annotated_types-0.7.0.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── licenses
+    │           │   │   └── LICENSE
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   └── WHEEL
+    │           ├── audit_trail_lib-0.1.0.dist-info
+    │           │   ├── direct_url.json
+    │           │   ├── INSTALLER
+    │           │   ├── licenses
+    │           │   │   └── LICENSE
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   ├── REQUESTED
+    │           │   ├── top_level.txt
+    │           │   └── WHEEL
     │           ├── blinker
     │           │   ├── base.py
     │           │   ├── __init__.py
-    │           │   ├── __pycache__
-    │           │   │   ├── base.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   └── _utilities.cpython-312.pyc
     │           │   ├── py.typed
     │           │   └── _utilities.py
     │           ├── blinker-1.9.0.dist-info
@@ -58,10 +210,6 @@
     │           │   ├── core.py
     │           │   ├── __init__.py
     │           │   ├── __main__.py
-    │           │   ├── __pycache__
-    │           │   │   ├── core.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   └── __main__.cpython-312.pyc
     │           │   └── py.typed
     │           ├── certifi-2025.4.26.dist-info
     │           │   ├── INSTALLER
@@ -76,10 +224,7 @@
     │           │   ├── cd.py
     │           │   ├── cli
     │           │   │   ├── __init__.py
-    │           │   │   ├── __main__.py
-    │           │   │   └── __pycache__
-    │           │   │       ├── __init__.cpython-312.pyc
-    │           │   │       └── __main__.cpython-312.pyc
+    │           │   │   └── __main__.py
     │           │   ├── constant.py
     │           │   ├── __init__.py
     │           │   ├── legacy.py
@@ -88,17 +233,6 @@
     │           │   ├── md__mypyc.cpython-312-x86_64-linux-gnu.so
     │           │   ├── md.py
     │           │   ├── models.py
-    │           │   ├── __pycache__
-    │           │   │   ├── api.cpython-312.pyc
-    │           │   │   ├── cd.cpython-312.pyc
-    │           │   │   ├── constant.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── legacy.cpython-312.pyc
-    │           │   │   ├── __main__.cpython-312.pyc
-    │           │   │   ├── md.cpython-312.pyc
-    │           │   │   ├── models.cpython-312.pyc
-    │           │   │   ├── utils.cpython-312.pyc
-    │           │   │   └── version.cpython-312.pyc
     │           │   ├── py.typed
     │           │   ├── utils.py
     │           │   └── version.py
@@ -120,23 +254,6 @@
     │           │   ├── globals.py
     │           │   ├── __init__.py
     │           │   ├── parser.py
-    │           │   ├── __pycache__
-    │           │   │   ├── _compat.cpython-312.pyc
-    │           │   │   ├── core.cpython-312.pyc
-    │           │   │   ├── decorators.cpython-312.pyc
-    │           │   │   ├── exceptions.cpython-312.pyc
-    │           │   │   ├── formatting.cpython-312.pyc
-    │           │   │   ├── globals.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── parser.cpython-312.pyc
-    │           │   │   ├── shell_completion.cpython-312.pyc
-    │           │   │   ├── termui.cpython-312.pyc
-    │           │   │   ├── _termui_impl.cpython-312.pyc
-    │           │   │   ├── testing.cpython-312.pyc
-    │           │   │   ├── _textwrap.cpython-312.pyc
-    │           │   │   ├── types.cpython-312.pyc
-    │           │   │   ├── utils.cpython-312.pyc
-    │           │   │   └── _winconsole.cpython-312.pyc
     │           │   ├── py.typed
     │           │   ├── shell_completion.py
     │           │   ├── _termui_impl.py
@@ -153,6 +270,31 @@
     │           │   ├── METADATA
     │           │   ├── RECORD
     │           │   └── WHEEL
+    │           ├── DateTime
+    │           │   ├── DateTime.py
+    │           │   ├── DateTime.txt
+    │           │   ├── __init__.py
+    │           │   ├── interfaces.py
+    │           │   ├── pytz_support.py
+    │           │   ├── pytz.txt
+    │           │   └── tests
+    │           │       ├── __init__.py
+    │           │       ├── julian_testdata.txt
+    │           │       └── test_datetime.py
+    │           ├── DateTime-5.5.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── LICENSE.txt
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   ├── REQUESTED
+    │           │   ├── top_level.txt
+    │           │   └── WHEEL
+    │           ├── _distutils_hack
+    │           │   ├── __init__.py
+    │           │   └── override.py
+    │           ├── distutils-precedence.pth
+    │           ├── __editable___audit_trail_lib_0_1_0_finder.py
+    │           ├── __editable__.audit_trail_lib-0.1.0.pth
     │           ├── flask
     │           │   ├── app.py
     │           │   ├── blueprints.py
@@ -166,40 +308,13 @@
     │           │   ├── json
     │           │   │   ├── __init__.py
     │           │   │   ├── provider.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── provider.cpython-312.pyc
-    │           │   │   │   └── tag.cpython-312.pyc
     │           │   │   └── tag.py
     │           │   ├── logging.py
     │           │   ├── __main__.py
-    │           │   ├── __pycache__
-    │           │   │   ├── app.cpython-312.pyc
-    │           │   │   ├── blueprints.cpython-312.pyc
-    │           │   │   ├── cli.cpython-312.pyc
-    │           │   │   ├── config.cpython-312.pyc
-    │           │   │   ├── ctx.cpython-312.pyc
-    │           │   │   ├── debughelpers.cpython-312.pyc
-    │           │   │   ├── globals.cpython-312.pyc
-    │           │   │   ├── helpers.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── logging.cpython-312.pyc
-    │           │   │   ├── __main__.cpython-312.pyc
-    │           │   │   ├── sessions.cpython-312.pyc
-    │           │   │   ├── signals.cpython-312.pyc
-    │           │   │   ├── templating.cpython-312.pyc
-    │           │   │   ├── testing.cpython-312.pyc
-    │           │   │   ├── typing.cpython-312.pyc
-    │           │   │   ├── views.cpython-312.pyc
-    │           │   │   └── wrappers.cpython-312.pyc
     │           │   ├── py.typed
     │           │   ├── sansio
     │           │   │   ├── app.py
     │           │   │   ├── blueprints.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── app.cpython-312.pyc
-    │           │   │   │   ├── blueprints.cpython-312.pyc
-    │           │   │   │   └── scaffold.cpython-312.pyc
     │           │   │   ├── README.md
     │           │   │   └── scaffold.py
     │           │   ├── sessions.py
@@ -222,12 +337,6 @@
     │           │   ├── decorator.py
     │           │   ├── extension.py
     │           │   ├── __init__.py
-    │           │   ├── __pycache__
-    │           │   │   ├── core.cpython-312.pyc
-    │           │   │   ├── decorator.cpython-312.pyc
-    │           │   │   ├── extension.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   └── version.cpython-312.pyc
     │           │   └── version.py
     │           ├── flask_cors-6.0.0.dist-info
     │           │   ├── INSTALLER
@@ -244,15 +353,6 @@
     │           │   ├── __init__.py
     │           │   ├── intranges.py
     │           │   ├── package_data.py
-    │           │   ├── __pycache__
-    │           │   │   ├── codec.cpython-312.pyc
-    │           │   │   ├── compat.cpython-312.pyc
-    │           │   │   ├── core.cpython-312.pyc
-    │           │   │   ├── idnadata.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── intranges.cpython-312.pyc
-    │           │   │   ├── package_data.cpython-312.pyc
-    │           │   │   └── uts46data.cpython-312.pyc
     │           │   ├── py.typed
     │           │   └── uts46data.py
     │           ├── idna-3.10.dist-info
@@ -266,15 +366,6 @@
     │           │   ├── exc.py
     │           │   ├── __init__.py
     │           │   ├── _json.py
-    │           │   ├── __pycache__
-    │           │   │   ├── encoding.cpython-312.pyc
-    │           │   │   ├── exc.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── _json.cpython-312.pyc
-    │           │   │   ├── serializer.cpython-312.pyc
-    │           │   │   ├── signer.cpython-312.pyc
-    │           │   │   ├── timed.cpython-312.pyc
-    │           │   │   └── url_safe.cpython-312.pyc
     │           │   ├── py.typed
     │           │   ├── serializer.py
     │           │   ├── signer.py
@@ -307,32 +398,6 @@
     │           │   ├── nodes.py
     │           │   ├── optimizer.py
     │           │   ├── parser.py
-    │           │   ├── __pycache__
-    │           │   │   ├── async_utils.cpython-312.pyc
-    │           │   │   ├── bccache.cpython-312.pyc
-    │           │   │   ├── compiler.cpython-312.pyc
-    │           │   │   ├── constants.cpython-312.pyc
-    │           │   │   ├── debug.cpython-312.pyc
-    │           │   │   ├── defaults.cpython-312.pyc
-    │           │   │   ├── environment.cpython-312.pyc
-    │           │   │   ├── exceptions.cpython-312.pyc
-    │           │   │   ├── ext.cpython-312.pyc
-    │           │   │   ├── filters.cpython-312.pyc
-    │           │   │   ├── _identifier.cpython-312.pyc
-    │           │   │   ├── idtracking.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── lexer.cpython-312.pyc
-    │           │   │   ├── loaders.cpython-312.pyc
-    │           │   │   ├── meta.cpython-312.pyc
-    │           │   │   ├── nativetypes.cpython-312.pyc
-    │           │   │   ├── nodes.cpython-312.pyc
-    │           │   │   ├── optimizer.cpython-312.pyc
-    │           │   │   ├── parser.cpython-312.pyc
-    │           │   │   ├── runtime.cpython-312.pyc
-    │           │   │   ├── sandbox.cpython-312.pyc
-    │           │   │   ├── tests.cpython-312.pyc
-    │           │   │   ├── utils.cpython-312.pyc
-    │           │   │   └── visitor.cpython-312.pyc
     │           │   ├── py.typed
     │           │   ├── runtime.py
     │           │   ├── sandbox.py
@@ -350,9 +415,6 @@
     │           ├── markupsafe
     │           │   ├── __init__.py
     │           │   ├── _native.py
-    │           │   ├── __pycache__
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   └── _native.cpython-312.pyc
     │           │   ├── py.typed
     │           │   ├── _speedups.c
     │           │   ├── _speedups.cpython-312-x86_64-linux-gnu.so
@@ -379,19 +441,6 @@
     │           │   │   │   ├── main.py
     │           │   │   │   ├── parser.py
     │           │   │   │   ├── progress_bars.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── autocompletion.cpython-312.pyc
-    │           │   │   │   │   ├── base_command.cpython-312.pyc
-    │           │   │   │   │   ├── cmdoptions.cpython-312.pyc
-    │           │   │   │   │   ├── command_context.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── main.cpython-312.pyc
-    │           │   │   │   │   ├── main_parser.cpython-312.pyc
-    │           │   │   │   │   ├── parser.cpython-312.pyc
-    │           │   │   │   │   ├── progress_bars.cpython-312.pyc
-    │           │   │   │   │   ├── req_command.cpython-312.pyc
-    │           │   │   │   │   ├── spinners.cpython-312.pyc
-    │           │   │   │   │   └── status_codes.cpython-312.pyc
     │           │   │   │   ├── req_command.py
     │           │   │   │   ├── spinners.py
     │           │   │   │   └── status_codes.py
@@ -410,25 +459,6 @@
     │           │   │   │   ├── inspect.py
     │           │   │   │   ├── install.py
     │           │   │   │   ├── list.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── cache.cpython-312.pyc
-    │           │   │   │   │   ├── check.cpython-312.pyc
-    │           │   │   │   │   ├── completion.cpython-312.pyc
-    │           │   │   │   │   ├── configuration.cpython-312.pyc
-    │           │   │   │   │   ├── debug.cpython-312.pyc
-    │           │   │   │   │   ├── download.cpython-312.pyc
-    │           │   │   │   │   ├── freeze.cpython-312.pyc
-    │           │   │   │   │   ├── hash.cpython-312.pyc
-    │           │   │   │   │   ├── help.cpython-312.pyc
-    │           │   │   │   │   ├── index.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── inspect.cpython-312.pyc
-    │           │   │   │   │   ├── install.cpython-312.pyc
-    │           │   │   │   │   ├── list.cpython-312.pyc
-    │           │   │   │   │   ├── search.cpython-312.pyc
-    │           │   │   │   │   ├── show.cpython-312.pyc
-    │           │   │   │   │   ├── uninstall.cpython-312.pyc
-    │           │   │   │   │   └── wheel.cpython-312.pyc
     │           │   │   │   ├── search.py
     │           │   │   │   ├── show.py
     │           │   │   │   ├── uninstall.py
@@ -438,12 +468,6 @@
     │           │   │   │   ├── base.py
     │           │   │   │   ├── __init__.py
     │           │   │   │   ├── installed.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── base.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── installed.cpython-312.pyc
-    │           │   │   │   │   ├── sdist.cpython-312.pyc
-    │           │   │   │   │   └── wheel.cpython-312.pyc
     │           │   │   │   ├── sdist.py
     │           │   │   │   └── wheel.py
     │           │   │   ├── exceptions.py
@@ -451,22 +475,12 @@
     │           │   │   │   ├── collector.py
     │           │   │   │   ├── __init__.py
     │           │   │   │   ├── package_finder.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── collector.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── package_finder.cpython-312.pyc
-    │           │   │   │   │   └── sources.cpython-312.pyc
     │           │   │   │   └── sources.py
     │           │   │   ├── __init__.py
     │           │   │   ├── locations
     │           │   │   │   ├── base.py
     │           │   │   │   ├── _distutils.py
     │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── base.cpython-312.pyc
-    │           │   │   │   │   ├── _distutils.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   └── _sysconfig.cpython-312.pyc
     │           │   │   │   └── _sysconfig.py
     │           │   │   ├── main.py
     │           │   │   ├── metadata
@@ -475,20 +489,10 @@
     │           │   │   │   │   ├── _compat.py
     │           │   │   │   │   ├── _dists.py
     │           │   │   │   │   ├── _envs.py
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   └── __pycache__
-    │           │   │   │   │       ├── _compat.cpython-312.pyc
-    │           │   │   │   │       ├── _dists.cpython-312.pyc
-    │           │   │   │   │       ├── _envs.cpython-312.pyc
-    │           │   │   │   │       └── __init__.cpython-312.pyc
+    │           │   │   │   │   └── __init__.py
     │           │   │   │   ├── __init__.py
     │           │   │   │   ├── _json.py
-    │           │   │   │   ├── pkg_resources.py
-    │           │   │   │   └── __pycache__
-    │           │   │   │       ├── base.cpython-312.pyc
-    │           │   │   │       ├── __init__.cpython-312.pyc
-    │           │   │   │       ├── _json.cpython-312.pyc
-    │           │   │   │       └── pkg_resources.cpython-312.pyc
+    │           │   │   │   └── pkg_resources.py
     │           │   │   ├── models
     │           │   │   │   ├── candidate.py
     │           │   │   │   ├── direct_url.py
@@ -497,19 +501,6 @@
     │           │   │   │   ├── __init__.py
     │           │   │   │   ├── installation_report.py
     │           │   │   │   ├── link.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── candidate.cpython-312.pyc
-    │           │   │   │   │   ├── direct_url.cpython-312.pyc
-    │           │   │   │   │   ├── format_control.cpython-312.pyc
-    │           │   │   │   │   ├── index.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── installation_report.cpython-312.pyc
-    │           │   │   │   │   ├── link.cpython-312.pyc
-    │           │   │   │   │   ├── scheme.cpython-312.pyc
-    │           │   │   │   │   ├── search_scope.cpython-312.pyc
-    │           │   │   │   │   ├── selection_prefs.cpython-312.pyc
-    │           │   │   │   │   ├── target_python.cpython-312.pyc
-    │           │   │   │   │   └── wheel.cpython-312.pyc
     │           │   │   │   ├── scheme.py
     │           │   │   │   ├── search_scope.py
     │           │   │   │   ├── selection_prefs.py
@@ -521,15 +512,6 @@
     │           │   │   │   ├── download.py
     │           │   │   │   ├── __init__.py
     │           │   │   │   ├── lazy_wheel.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── auth.cpython-312.pyc
-    │           │   │   │   │   ├── cache.cpython-312.pyc
-    │           │   │   │   │   ├── download.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── lazy_wheel.cpython-312.pyc
-    │           │   │   │   │   ├── session.cpython-312.pyc
-    │           │   │   │   │   ├── utils.cpython-312.pyc
-    │           │   │   │   │   └── xmlrpc.cpython-312.pyc
     │           │   │   │   ├── session.py
     │           │   │   │   ├── utils.py
     │           │   │   │   └── xmlrpc.py
@@ -540,15 +522,6 @@
     │           │   │   │   │   ├── metadata_editable.py
     │           │   │   │   │   ├── metadata_legacy.py
     │           │   │   │   │   ├── metadata.py
-    │           │   │   │   │   ├── __pycache__
-    │           │   │   │   │   │   ├── build_tracker.cpython-312.pyc
-    │           │   │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   │   ├── metadata.cpython-312.pyc
-    │           │   │   │   │   │   ├── metadata_editable.cpython-312.pyc
-    │           │   │   │   │   │   ├── metadata_legacy.cpython-312.pyc
-    │           │   │   │   │   │   ├── wheel.cpython-312.pyc
-    │           │   │   │   │   │   ├── wheel_editable.cpython-312.pyc
-    │           │   │   │   │   │   └── wheel_legacy.cpython-312.pyc
     │           │   │   │   │   ├── wheel_editable.py
     │           │   │   │   │   ├── wheel_legacy.py
     │           │   │   │   │   └── wheel.py
@@ -558,38 +531,12 @@
     │           │   │   │   ├── install
     │           │   │   │   │   ├── editable_legacy.py
     │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── __pycache__
-    │           │   │   │   │   │   ├── editable_legacy.cpython-312.pyc
-    │           │   │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   │   └── wheel.cpython-312.pyc
     │           │   │   │   │   └── wheel.py
-    │           │   │   │   ├── prepare.py
-    │           │   │   │   └── __pycache__
-    │           │   │   │       ├── check.cpython-312.pyc
-    │           │   │   │       ├── freeze.cpython-312.pyc
-    │           │   │   │       ├── __init__.cpython-312.pyc
-    │           │   │   │       └── prepare.cpython-312.pyc
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── build_env.cpython-312.pyc
-    │           │   │   │   ├── cache.cpython-312.pyc
-    │           │   │   │   ├── configuration.cpython-312.pyc
-    │           │   │   │   ├── exceptions.cpython-312.pyc
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── main.cpython-312.pyc
-    │           │   │   │   ├── pyproject.cpython-312.pyc
-    │           │   │   │   ├── self_outdated_check.cpython-312.pyc
-    │           │   │   │   └── wheel_builder.cpython-312.pyc
+    │           │   │   │   └── prepare.py
     │           │   │   ├── pyproject.py
     │           │   │   ├── req
     │           │   │   │   ├── constructors.py
     │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── constructors.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── req_file.cpython-312.pyc
-    │           │   │   │   │   ├── req_install.cpython-312.pyc
-    │           │   │   │   │   ├── req_set.cpython-312.pyc
-    │           │   │   │   │   └── req_uninstall.cpython-312.pyc
     │           │   │   │   ├── req_file.py
     │           │   │   │   ├── req_install.py
     │           │   │   │   ├── req_set.py
@@ -599,13 +546,7 @@
     │           │   │   │   ├── __init__.py
     │           │   │   │   ├── legacy
     │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── __pycache__
-    │           │   │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   │   └── resolver.cpython-312.pyc
     │           │   │   │   │   └── resolver.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── base.cpython-312.pyc
-    │           │   │   │   │   └── __init__.cpython-312.pyc
     │           │   │   │   └── resolvelib
     │           │   │   │       ├── base.py
     │           │   │   │       ├── candidates.py
@@ -613,16 +554,6 @@
     │           │   │   │       ├── found_candidates.py
     │           │   │   │       ├── __init__.py
     │           │   │   │       ├── provider.py
-    │           │   │   │       ├── __pycache__
-    │           │   │   │       │   ├── base.cpython-312.pyc
-    │           │   │   │       │   ├── candidates.cpython-312.pyc
-    │           │   │   │       │   ├── factory.cpython-312.pyc
-    │           │   │   │       │   ├── found_candidates.cpython-312.pyc
-    │           │   │   │       │   ├── __init__.cpython-312.pyc
-    │           │   │   │       │   ├── provider.cpython-312.pyc
-    │           │   │   │       │   ├── reporter.cpython-312.pyc
-    │           │   │   │       │   ├── requirements.cpython-312.pyc
-    │           │   │   │       │   └── resolver.cpython-312.pyc
     │           │   │   │       ├── reporter.py
     │           │   │   │       ├── requirements.py
     │           │   │   │       └── resolver.py
@@ -648,34 +579,6 @@
     │           │   │   │   ├── misc.py
     │           │   │   │   ├── models.py
     │           │   │   │   ├── packaging.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── appdirs.cpython-312.pyc
-    │           │   │   │   │   ├── compat.cpython-312.pyc
-    │           │   │   │   │   ├── compatibility_tags.cpython-312.pyc
-    │           │   │   │   │   ├── datetime.cpython-312.pyc
-    │           │   │   │   │   ├── deprecation.cpython-312.pyc
-    │           │   │   │   │   ├── direct_url_helpers.cpython-312.pyc
-    │           │   │   │   │   ├── egg_link.cpython-312.pyc
-    │           │   │   │   │   ├── encoding.cpython-312.pyc
-    │           │   │   │   │   ├── entrypoints.cpython-312.pyc
-    │           │   │   │   │   ├── filesystem.cpython-312.pyc
-    │           │   │   │   │   ├── filetypes.cpython-312.pyc
-    │           │   │   │   │   ├── glibc.cpython-312.pyc
-    │           │   │   │   │   ├── hashes.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── _jaraco_text.cpython-312.pyc
-    │           │   │   │   │   ├── _log.cpython-312.pyc
-    │           │   │   │   │   ├── logging.cpython-312.pyc
-    │           │   │   │   │   ├── misc.cpython-312.pyc
-    │           │   │   │   │   ├── models.cpython-312.pyc
-    │           │   │   │   │   ├── packaging.cpython-312.pyc
-    │           │   │   │   │   ├── setuptools_build.cpython-312.pyc
-    │           │   │   │   │   ├── subprocess.cpython-312.pyc
-    │           │   │   │   │   ├── temp_dir.cpython-312.pyc
-    │           │   │   │   │   ├── unpacking.cpython-312.pyc
-    │           │   │   │   │   ├── urls.cpython-312.pyc
-    │           │   │   │   │   ├── virtualenv.cpython-312.pyc
-    │           │   │   │   │   └── wheel.cpython-312.pyc
     │           │   │   │   ├── setuptools_build.py
     │           │   │   │   ├── subprocess.py
     │           │   │   │   ├── temp_dir.py
@@ -688,22 +591,11 @@
     │           │   │   │   ├── git.py
     │           │   │   │   ├── __init__.py
     │           │   │   │   ├── mercurial.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── bazaar.cpython-312.pyc
-    │           │   │   │   │   ├── git.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── mercurial.cpython-312.pyc
-    │           │   │   │   │   ├── subversion.cpython-312.pyc
-    │           │   │   │   │   └── versioncontrol.cpython-312.pyc
     │           │   │   │   ├── subversion.py
     │           │   │   │   └── versioncontrol.py
     │           │   │   └── wheel_builder.py
     │           │   ├── __main__.py
     │           │   ├── __pip-runner__.py
-    │           │   ├── __pycache__
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── __main__.cpython-312.pyc
-    │           │   │   └── __pip-runner__.cpython-312.pyc
     │           │   ├── py.typed
     │           │   └── _vendor
     │           │       ├── cachecontrol
@@ -712,37 +604,19 @@
     │           │       │   ├── caches
     │           │       │   │   ├── file_cache.py
     │           │       │   │   ├── __init__.py
-    │           │       │   │   ├── __pycache__
-    │           │       │   │   │   ├── file_cache.cpython-312.pyc
-    │           │       │   │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   │   └── redis_cache.cpython-312.pyc
     │           │       │   │   └── redis_cache.py
     │           │       │   ├── _cmd.py
     │           │       │   ├── controller.py
     │           │       │   ├── filewrapper.py
     │           │       │   ├── heuristics.py
     │           │       │   ├── __init__.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── adapter.cpython-312.pyc
-    │           │       │   │   ├── cache.cpython-312.pyc
-    │           │       │   │   ├── _cmd.cpython-312.pyc
-    │           │       │   │   ├── controller.cpython-312.pyc
-    │           │       │   │   ├── filewrapper.cpython-312.pyc
-    │           │       │   │   ├── heuristics.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── serialize.cpython-312.pyc
-    │           │       │   │   └── wrapper.cpython-312.pyc
     │           │       │   ├── serialize.py
     │           │       │   └── wrapper.py
     │           │       ├── certifi
     │           │       │   ├── cacert.pem
     │           │       │   ├── core.py
     │           │       │   ├── __init__.py
-    │           │       │   ├── __main__.py
-    │           │       │   └── __pycache__
-    │           │       │       ├── core.cpython-312.pyc
-    │           │       │       ├── __init__.cpython-312.pyc
-    │           │       │       └── __main__.cpython-312.pyc
+    │           │       │   └── __main__.py
     │           │       ├── chardet
     │           │       │   ├── big5freq.py
     │           │       │   ├── big5prober.py
@@ -751,10 +625,7 @@
     │           │       │   ├── charsetprober.py
     │           │       │   ├── cli
     │           │       │   │   ├── chardetect.py
-    │           │       │   │   ├── __init__.py
-    │           │       │   │   └── __pycache__
-    │           │       │   │       ├── chardetect.cpython-312.pyc
-    │           │       │   │       └── __init__.cpython-312.pyc
+    │           │       │   │   └── __init__.py
     │           │       │   ├── codingstatemachinedict.py
     │           │       │   ├── codingstatemachine.py
     │           │       │   ├── cp949prober.py
@@ -788,55 +659,7 @@
     │           │       │   ├── mbcssm.py
     │           │       │   ├── metadata
     │           │       │   │   ├── __init__.py
-    │           │       │   │   ├── languages.py
-    │           │       │   │   └── __pycache__
-    │           │       │   │       ├── __init__.cpython-312.pyc
-    │           │       │   │       └── languages.cpython-312.pyc
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── big5freq.cpython-312.pyc
-    │           │       │   │   ├── big5prober.cpython-312.pyc
-    │           │       │   │   ├── chardistribution.cpython-312.pyc
-    │           │       │   │   ├── charsetgroupprober.cpython-312.pyc
-    │           │       │   │   ├── charsetprober.cpython-312.pyc
-    │           │       │   │   ├── codingstatemachine.cpython-312.pyc
-    │           │       │   │   ├── codingstatemachinedict.cpython-312.pyc
-    │           │       │   │   ├── cp949prober.cpython-312.pyc
-    │           │       │   │   ├── enums.cpython-312.pyc
-    │           │       │   │   ├── escprober.cpython-312.pyc
-    │           │       │   │   ├── escsm.cpython-312.pyc
-    │           │       │   │   ├── eucjpprober.cpython-312.pyc
-    │           │       │   │   ├── euckrfreq.cpython-312.pyc
-    │           │       │   │   ├── euckrprober.cpython-312.pyc
-    │           │       │   │   ├── euctwfreq.cpython-312.pyc
-    │           │       │   │   ├── euctwprober.cpython-312.pyc
-    │           │       │   │   ├── gb2312freq.cpython-312.pyc
-    │           │       │   │   ├── gb2312prober.cpython-312.pyc
-    │           │       │   │   ├── hebrewprober.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── jisfreq.cpython-312.pyc
-    │           │       │   │   ├── johabfreq.cpython-312.pyc
-    │           │       │   │   ├── johabprober.cpython-312.pyc
-    │           │       │   │   ├── jpcntx.cpython-312.pyc
-    │           │       │   │   ├── langbulgarianmodel.cpython-312.pyc
-    │           │       │   │   ├── langgreekmodel.cpython-312.pyc
-    │           │       │   │   ├── langhebrewmodel.cpython-312.pyc
-    │           │       │   │   ├── langhungarianmodel.cpython-312.pyc
-    │           │       │   │   ├── langrussianmodel.cpython-312.pyc
-    │           │       │   │   ├── langthaimodel.cpython-312.pyc
-    │           │       │   │   ├── langturkishmodel.cpython-312.pyc
-    │           │       │   │   ├── latin1prober.cpython-312.pyc
-    │           │       │   │   ├── macromanprober.cpython-312.pyc
-    │           │       │   │   ├── mbcharsetprober.cpython-312.pyc
-    │           │       │   │   ├── mbcsgroupprober.cpython-312.pyc
-    │           │       │   │   ├── mbcssm.cpython-312.pyc
-    │           │       │   │   ├── resultdict.cpython-312.pyc
-    │           │       │   │   ├── sbcharsetprober.cpython-312.pyc
-    │           │       │   │   ├── sbcsgroupprober.cpython-312.pyc
-    │           │       │   │   ├── sjisprober.cpython-312.pyc
-    │           │       │   │   ├── universaldetector.cpython-312.pyc
-    │           │       │   │   ├── utf1632prober.cpython-312.pyc
-    │           │       │   │   ├── utf8prober.cpython-312.pyc
-    │           │       │   │   └── version.cpython-312.pyc
+    │           │       │   │   └── languages.py
     │           │       │   ├── resultdict.py
     │           │       │   ├── sbcharsetprober.py
     │           │       │   ├── sbcsgroupprober.py
@@ -850,27 +673,12 @@
     │           │       │   ├── ansitowin32.py
     │           │       │   ├── initialise.py
     │           │       │   ├── __init__.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── ansi.cpython-312.pyc
-    │           │       │   │   ├── ansitowin32.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── initialise.cpython-312.pyc
-    │           │       │   │   ├── win32.cpython-312.pyc
-    │           │       │   │   └── winterm.cpython-312.pyc
     │           │       │   ├── tests
     │           │       │   │   ├── ansi_test.py
     │           │       │   │   ├── ansitowin32_test.py
     │           │       │   │   ├── initialise_test.py
     │           │       │   │   ├── __init__.py
     │           │       │   │   ├── isatty_test.py
-    │           │       │   │   ├── __pycache__
-    │           │       │   │   │   ├── ansi_test.cpython-312.pyc
-    │           │       │   │   │   ├── ansitowin32_test.cpython-312.pyc
-    │           │       │   │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   │   ├── initialise_test.cpython-312.pyc
-    │           │       │   │   │   ├── isatty_test.cpython-312.pyc
-    │           │       │   │   │   ├── utils.cpython-312.pyc
-    │           │       │   │   │   └── winterm_test.cpython-312.pyc
     │           │       │   │   ├── utils.py
     │           │       │   │   └── winterm_test.py
     │           │       │   ├── win32.py
@@ -884,20 +692,6 @@
     │           │       │   ├── manifest.py
     │           │       │   ├── markers.py
     │           │       │   ├── metadata.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── compat.cpython-312.pyc
-    │           │       │   │   ├── database.cpython-312.pyc
-    │           │       │   │   ├── index.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── locators.cpython-312.pyc
-    │           │       │   │   ├── manifest.cpython-312.pyc
-    │           │       │   │   ├── markers.cpython-312.pyc
-    │           │       │   │   ├── metadata.cpython-312.pyc
-    │           │       │   │   ├── resources.cpython-312.pyc
-    │           │       │   │   ├── scripts.cpython-312.pyc
-    │           │       │   │   ├── util.cpython-312.pyc
-    │           │       │   │   ├── version.cpython-312.pyc
-    │           │       │   │   └── wheel.cpython-312.pyc
     │           │       │   ├── resources.py
     │           │       │   ├── scripts.py
     │           │       │   ├── util.py
@@ -906,11 +700,7 @@
     │           │       ├── distro
     │           │       │   ├── distro.py
     │           │       │   ├── __init__.py
-    │           │       │   ├── __main__.py
-    │           │       │   └── __pycache__
-    │           │       │       ├── distro.cpython-312.pyc
-    │           │       │       ├── __init__.cpython-312.pyc
-    │           │       │       └── __main__.cpython-312.pyc
+    │           │       │   └── __main__.py
     │           │       ├── idna
     │           │       │   ├── codec.py
     │           │       │   ├── compat.py
@@ -919,45 +709,19 @@
     │           │       │   ├── __init__.py
     │           │       │   ├── intranges.py
     │           │       │   ├── package_data.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── codec.cpython-312.pyc
-    │           │       │   │   ├── compat.cpython-312.pyc
-    │           │       │   │   ├── core.cpython-312.pyc
-    │           │       │   │   ├── idnadata.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── intranges.cpython-312.pyc
-    │           │       │   │   ├── package_data.cpython-312.pyc
-    │           │       │   │   └── uts46data.cpython-312.pyc
     │           │       │   └── uts46data.py
     │           │       ├── __init__.py
     │           │       ├── msgpack
     │           │       │   ├── exceptions.py
     │           │       │   ├── ext.py
     │           │       │   ├── fallback.py
-    │           │       │   ├── __init__.py
-    │           │       │   └── __pycache__
-    │           │       │       ├── exceptions.cpython-312.pyc
-    │           │       │       ├── ext.cpython-312.pyc
-    │           │       │       ├── fallback.cpython-312.pyc
-    │           │       │       └── __init__.cpython-312.pyc
+    │           │       │   └── __init__.py
     │           │       ├── packaging
     │           │       │   ├── __about__.py
     │           │       │   ├── __init__.py
     │           │       │   ├── _manylinux.py
     │           │       │   ├── markers.py
     │           │       │   ├── _musllinux.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── __about__.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── _manylinux.cpython-312.pyc
-    │           │       │   │   ├── markers.cpython-312.pyc
-    │           │       │   │   ├── _musllinux.cpython-312.pyc
-    │           │       │   │   ├── requirements.cpython-312.pyc
-    │           │       │   │   ├── specifiers.cpython-312.pyc
-    │           │       │   │   ├── _structures.cpython-312.pyc
-    │           │       │   │   ├── tags.cpython-312.pyc
-    │           │       │   │   ├── utils.cpython-312.pyc
-    │           │       │   │   └── version.cpython-312.pyc
     │           │       │   ├── requirements.py
     │           │       │   ├── specifiers.py
     │           │       │   ├── _structures.py
@@ -965,39 +729,22 @@
     │           │       │   ├── utils.py
     │           │       │   └── version.py
     │           │       ├── pkg_resources
-    │           │       │   ├── __init__.py
-    │           │       │   └── __pycache__
-    │           │       │       └── __init__.cpython-312.pyc
+    │           │       │   └── __init__.py
     │           │       ├── platformdirs
     │           │       │   ├── android.py
     │           │       │   ├── api.py
     │           │       │   ├── __init__.py
     │           │       │   ├── macos.py
     │           │       │   ├── __main__.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── android.cpython-312.pyc
-    │           │       │   │   ├── api.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── macos.cpython-312.pyc
-    │           │       │   │   ├── __main__.cpython-312.pyc
-    │           │       │   │   ├── unix.cpython-312.pyc
-    │           │       │   │   ├── version.cpython-312.pyc
-    │           │       │   │   └── windows.cpython-312.pyc
     │           │       │   ├── unix.py
     │           │       │   ├── version.py
     │           │       │   └── windows.py
-    │           │       ├── __pycache__
-    │           │       │   ├── __init__.cpython-312.pyc
-    │           │       │   ├── six.cpython-312.pyc
-    │           │       │   └── typing_extensions.cpython-312.pyc
     │           │       ├── pygments
     │           │       │   ├── cmdline.py
     │           │       │   ├── console.py
     │           │       │   ├── filter.py
     │           │       │   ├── filters
-    │           │       │   │   ├── __init__.py
-    │           │       │   │   └── __pycache__
-    │           │       │   │       └── __init__.cpython-312.pyc
+    │           │       │   │   └── __init__.py
     │           │       │   ├── formatter.py
     │           │       │   ├── formatters
     │           │       │   │   ├── bbcode.py
@@ -1010,21 +757,6 @@
     │           │       │   │   ├── _mapping.py
     │           │       │   │   ├── other.py
     │           │       │   │   ├── pangomarkup.py
-    │           │       │   │   ├── __pycache__
-    │           │       │   │   │   ├── bbcode.cpython-312.pyc
-    │           │       │   │   │   ├── groff.cpython-312.pyc
-    │           │       │   │   │   ├── html.cpython-312.pyc
-    │           │       │   │   │   ├── img.cpython-312.pyc
-    │           │       │   │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   │   ├── irc.cpython-312.pyc
-    │           │       │   │   │   ├── latex.cpython-312.pyc
-    │           │       │   │   │   ├── _mapping.cpython-312.pyc
-    │           │       │   │   │   ├── other.cpython-312.pyc
-    │           │       │   │   │   ├── pangomarkup.cpython-312.pyc
-    │           │       │   │   │   ├── rtf.cpython-312.pyc
-    │           │       │   │   │   ├── svg.cpython-312.pyc
-    │           │       │   │   │   ├── terminal256.cpython-312.pyc
-    │           │       │   │   │   └── terminal.cpython-312.pyc
     │           │       │   │   ├── rtf.py
     │           │       │   │   ├── svg.py
     │           │       │   │   ├── terminal256.py
@@ -1034,39 +766,16 @@
     │           │       │   ├── lexers
     │           │       │   │   ├── __init__.py
     │           │       │   │   ├── _mapping.py
-    │           │       │   │   ├── __pycache__
-    │           │       │   │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   │   ├── _mapping.cpython-312.pyc
-    │           │       │   │   │   └── python.cpython-312.pyc
     │           │       │   │   └── python.py
     │           │       │   ├── __main__.py
     │           │       │   ├── modeline.py
     │           │       │   ├── plugin.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── cmdline.cpython-312.pyc
-    │           │       │   │   ├── console.cpython-312.pyc
-    │           │       │   │   ├── filter.cpython-312.pyc
-    │           │       │   │   ├── formatter.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── lexer.cpython-312.pyc
-    │           │       │   │   ├── __main__.cpython-312.pyc
-    │           │       │   │   ├── modeline.cpython-312.pyc
-    │           │       │   │   ├── plugin.cpython-312.pyc
-    │           │       │   │   ├── regexopt.cpython-312.pyc
-    │           │       │   │   ├── scanner.cpython-312.pyc
-    │           │       │   │   ├── sphinxext.cpython-312.pyc
-    │           │       │   │   ├── style.cpython-312.pyc
-    │           │       │   │   ├── token.cpython-312.pyc
-    │           │       │   │   ├── unistring.cpython-312.pyc
-    │           │       │   │   └── util.cpython-312.pyc
     │           │       │   ├── regexopt.py
     │           │       │   ├── scanner.py
     │           │       │   ├── sphinxext.py
     │           │       │   ├── style.py
     │           │       │   ├── styles
-    │           │       │   │   ├── __init__.py
-    │           │       │   │   └── __pycache__
-    │           │       │   │       └── __init__.cpython-312.pyc
+    │           │       │   │   └── __init__.py
     │           │       │   ├── token.py
     │           │       │   ├── unistring.py
     │           │       │   └── util.py
@@ -1075,23 +784,10 @@
     │           │       │   ├── common.py
     │           │       │   ├── core.py
     │           │       │   ├── diagram
-    │           │       │   │   ├── __init__.py
-    │           │       │   │   └── __pycache__
-    │           │       │   │       └── __init__.cpython-312.pyc
+    │           │       │   │   └── __init__.py
     │           │       │   ├── exceptions.py
     │           │       │   ├── helpers.py
     │           │       │   ├── __init__.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── actions.cpython-312.pyc
-    │           │       │   │   ├── common.cpython-312.pyc
-    │           │       │   │   ├── core.cpython-312.pyc
-    │           │       │   │   ├── exceptions.cpython-312.pyc
-    │           │       │   │   ├── helpers.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── results.cpython-312.pyc
-    │           │       │   │   ├── testing.cpython-312.pyc
-    │           │       │   │   ├── unicode.cpython-312.pyc
-    │           │       │   │   └── util.cpython-312.pyc
     │           │       │   ├── results.py
     │           │       │   ├── testing.py
     │           │       │   ├── unicode.py
@@ -1100,16 +796,9 @@
     │           │       │   ├── _compat.py
     │           │       │   ├── _impl.py
     │           │       │   ├── __init__.py
-    │           │       │   ├── _in_process
-    │           │       │   │   ├── __init__.py
-    │           │       │   │   ├── _in_process.py
-    │           │       │   │   └── __pycache__
-    │           │       │   │       ├── __init__.cpython-312.pyc
-    │           │       │   │       └── _in_process.cpython-312.pyc
-    │           │       │   └── __pycache__
-    │           │       │       ├── _compat.cpython-312.pyc
-    │           │       │       ├── _impl.cpython-312.pyc
-    │           │       │       └── __init__.cpython-312.pyc
+    │           │       │   └── _in_process
+    │           │       │       ├── __init__.py
+    │           │       │       └── _in_process.py
     │           │       ├── requests
     │           │       │   ├── adapters.py
     │           │       │   ├── api.py
@@ -1124,25 +813,6 @@
     │           │       │   ├── _internal_utils.py
     │           │       │   ├── models.py
     │           │       │   ├── packages.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── adapters.cpython-312.pyc
-    │           │       │   │   ├── api.cpython-312.pyc
-    │           │       │   │   ├── auth.cpython-312.pyc
-    │           │       │   │   ├── certs.cpython-312.pyc
-    │           │       │   │   ├── compat.cpython-312.pyc
-    │           │       │   │   ├── cookies.cpython-312.pyc
-    │           │       │   │   ├── exceptions.cpython-312.pyc
-    │           │       │   │   ├── help.cpython-312.pyc
-    │           │       │   │   ├── hooks.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── _internal_utils.cpython-312.pyc
-    │           │       │   │   ├── models.cpython-312.pyc
-    │           │       │   │   ├── packages.cpython-312.pyc
-    │           │       │   │   ├── sessions.cpython-312.pyc
-    │           │       │   │   ├── status_codes.cpython-312.pyc
-    │           │       │   │   ├── structures.cpython-312.pyc
-    │           │       │   │   ├── utils.cpython-312.pyc
-    │           │       │   │   └── __version__.cpython-312.pyc
     │           │       │   ├── sessions.py
     │           │       │   ├── status_codes.py
     │           │       │   ├── structures.py
@@ -1151,18 +821,9 @@
     │           │       ├── resolvelib
     │           │       │   ├── compat
     │           │       │   │   ├── collections_abc.py
-    │           │       │   │   ├── __init__.py
-    │           │       │   │   └── __pycache__
-    │           │       │   │       ├── collections_abc.cpython-312.pyc
-    │           │       │   │       └── __init__.cpython-312.pyc
+    │           │       │   │   └── __init__.py
     │           │       │   ├── __init__.py
     │           │       │   ├── providers.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── providers.cpython-312.pyc
-    │           │       │   │   ├── reporters.cpython-312.pyc
-    │           │       │   │   ├── resolvers.cpython-312.pyc
-    │           │       │   │   └── structs.cpython-312.pyc
     │           │       │   ├── reporters.py
     │           │       │   ├── resolvers.py
     │           │       │   └── structs.py
@@ -1218,84 +879,6 @@
     │           │       │   ├── progress.py
     │           │       │   ├── prompt.py
     │           │       │   ├── protocol.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── abc.cpython-312.pyc
-    │           │       │   │   ├── align.cpython-312.pyc
-    │           │       │   │   ├── ansi.cpython-312.pyc
-    │           │       │   │   ├── bar.cpython-312.pyc
-    │           │       │   │   ├── box.cpython-312.pyc
-    │           │       │   │   ├── cells.cpython-312.pyc
-    │           │       │   │   ├── _cell_widths.cpython-312.pyc
-    │           │       │   │   ├── color.cpython-312.pyc
-    │           │       │   │   ├── color_triplet.cpython-312.pyc
-    │           │       │   │   ├── columns.cpython-312.pyc
-    │           │       │   │   ├── console.cpython-312.pyc
-    │           │       │   │   ├── constrain.cpython-312.pyc
-    │           │       │   │   ├── containers.cpython-312.pyc
-    │           │       │   │   ├── control.cpython-312.pyc
-    │           │       │   │   ├── default_styles.cpython-312.pyc
-    │           │       │   │   ├── diagnose.cpython-312.pyc
-    │           │       │   │   ├── _emoji_codes.cpython-312.pyc
-    │           │       │   │   ├── emoji.cpython-312.pyc
-    │           │       │   │   ├── _emoji_replace.cpython-312.pyc
-    │           │       │   │   ├── errors.cpython-312.pyc
-    │           │       │   │   ├── _export_format.cpython-312.pyc
-    │           │       │   │   ├── _extension.cpython-312.pyc
-    │           │       │   │   ├── _fileno.cpython-312.pyc
-    │           │       │   │   ├── file_proxy.cpython-312.pyc
-    │           │       │   │   ├── filesize.cpython-312.pyc
-    │           │       │   │   ├── highlighter.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── _inspect.cpython-312.pyc
-    │           │       │   │   ├── json.cpython-312.pyc
-    │           │       │   │   ├── jupyter.cpython-312.pyc
-    │           │       │   │   ├── layout.cpython-312.pyc
-    │           │       │   │   ├── live.cpython-312.pyc
-    │           │       │   │   ├── live_render.cpython-312.pyc
-    │           │       │   │   ├── logging.cpython-312.pyc
-    │           │       │   │   ├── _log_render.cpython-312.pyc
-    │           │       │   │   ├── _loop.cpython-312.pyc
-    │           │       │   │   ├── __main__.cpython-312.pyc
-    │           │       │   │   ├── markup.cpython-312.pyc
-    │           │       │   │   ├── measure.cpython-312.pyc
-    │           │       │   │   ├── _null_file.cpython-312.pyc
-    │           │       │   │   ├── padding.cpython-312.pyc
-    │           │       │   │   ├── pager.cpython-312.pyc
-    │           │       │   │   ├── palette.cpython-312.pyc
-    │           │       │   │   ├── _palettes.cpython-312.pyc
-    │           │       │   │   ├── panel.cpython-312.pyc
-    │           │       │   │   ├── _pick.cpython-312.pyc
-    │           │       │   │   ├── pretty.cpython-312.pyc
-    │           │       │   │   ├── progress_bar.cpython-312.pyc
-    │           │       │   │   ├── progress.cpython-312.pyc
-    │           │       │   │   ├── prompt.cpython-312.pyc
-    │           │       │   │   ├── protocol.cpython-312.pyc
-    │           │       │   │   ├── _ratio.cpython-312.pyc
-    │           │       │   │   ├── region.cpython-312.pyc
-    │           │       │   │   ├── repr.cpython-312.pyc
-    │           │       │   │   ├── rule.cpython-312.pyc
-    │           │       │   │   ├── scope.cpython-312.pyc
-    │           │       │   │   ├── screen.cpython-312.pyc
-    │           │       │   │   ├── segment.cpython-312.pyc
-    │           │       │   │   ├── spinner.cpython-312.pyc
-    │           │       │   │   ├── _spinners.cpython-312.pyc
-    │           │       │   │   ├── _stack.cpython-312.pyc
-    │           │       │   │   ├── status.cpython-312.pyc
-    │           │       │   │   ├── style.cpython-312.pyc
-    │           │       │   │   ├── styled.cpython-312.pyc
-    │           │       │   │   ├── syntax.cpython-312.pyc
-    │           │       │   │   ├── table.cpython-312.pyc
-    │           │       │   │   ├── terminal_theme.cpython-312.pyc
-    │           │       │   │   ├── text.cpython-312.pyc
-    │           │       │   │   ├── theme.cpython-312.pyc
-    │           │       │   │   ├── themes.cpython-312.pyc
-    │           │       │   │   ├── _timer.cpython-312.pyc
-    │           │       │   │   ├── traceback.cpython-312.pyc
-    │           │       │   │   ├── tree.cpython-312.pyc
-    │           │       │   │   ├── _win32_console.cpython-312.pyc
-    │           │       │   │   ├── _windows.cpython-312.pyc
-    │           │       │   │   ├── _windows_renderer.cpython-312.pyc
-    │           │       │   │   └── _wrap.cpython-312.pyc
     │           │       │   ├── _ratio.py
     │           │       │   ├── region.py
     │           │       │   ├── repr.py
@@ -1330,18 +913,6 @@
     │           │       │   ├── before_sleep.py
     │           │       │   ├── __init__.py
     │           │       │   ├── nap.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── after.cpython-312.pyc
-    │           │       │   │   ├── _asyncio.cpython-312.pyc
-    │           │       │   │   ├── before.cpython-312.pyc
-    │           │       │   │   ├── before_sleep.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── nap.cpython-312.pyc
-    │           │       │   │   ├── retry.cpython-312.pyc
-    │           │       │   │   ├── stop.cpython-312.pyc
-    │           │       │   │   ├── tornadoweb.cpython-312.pyc
-    │           │       │   │   ├── _utils.cpython-312.pyc
-    │           │       │   │   └── wait.cpython-312.pyc
     │           │       │   ├── retry.py
     │           │       │   ├── stop.py
     │           │       │   ├── tornadoweb.py
@@ -1350,11 +921,6 @@
     │           │       ├── tomli
     │           │       │   ├── __init__.py
     │           │       │   ├── _parser.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── _parser.cpython-312.pyc
-    │           │       │   │   ├── _re.cpython-312.pyc
-    │           │       │   │   └── _types.cpython-312.pyc
     │           │       │   ├── _re.py
     │           │       │   └── _types.py
     │           │       ├── truststore
@@ -1362,13 +928,6 @@
     │           │       │   ├── __init__.py
     │           │       │   ├── _macos.py
     │           │       │   ├── _openssl.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── _api.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── _macos.cpython-312.pyc
-    │           │       │   │   ├── _openssl.cpython-312.pyc
-    │           │       │   │   ├── _ssl_constants.cpython-312.pyc
-    │           │       │   │   └── _windows.cpython-312.pyc
     │           │       │   ├── _ssl_constants.py
     │           │       │   └── _windows.py
     │           │       ├── typing_extensions.py
@@ -1381,23 +940,11 @@
     │           │       │   │   ├── appengine.py
     │           │       │   │   ├── __init__.py
     │           │       │   │   ├── ntlmpool.py
-    │           │       │   │   ├── __pycache__
-    │           │       │   │   │   ├── appengine.cpython-312.pyc
-    │           │       │   │   │   ├── _appengine_environ.cpython-312.pyc
-    │           │       │   │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   │   ├── ntlmpool.cpython-312.pyc
-    │           │       │   │   │   ├── pyopenssl.cpython-312.pyc
-    │           │       │   │   │   ├── securetransport.cpython-312.pyc
-    │           │       │   │   │   └── socks.cpython-312.pyc
     │           │       │   │   ├── pyopenssl.py
     │           │       │   │   ├── _securetransport
     │           │       │   │   │   ├── bindings.py
     │           │       │   │   │   ├── __init__.py
-    │           │       │   │   │   ├── low_level.py
-    │           │       │   │   │   └── __pycache__
-    │           │       │   │   │       ├── bindings.cpython-312.pyc
-    │           │       │   │   │       ├── __init__.cpython-312.pyc
-    │           │       │   │   │       └── low_level.cpython-312.pyc
+    │           │       │   │   │   └── low_level.py
     │           │       │   │   ├── securetransport.py
     │           │       │   │   └── socks.py
     │           │       │   ├── exceptions.py
@@ -1408,49 +955,16 @@
     │           │       │   │   ├── backports
     │           │       │   │   │   ├── __init__.py
     │           │       │   │   │   ├── makefile.py
-    │           │       │   │   │   ├── __pycache__
-    │           │       │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   │   │   ├── makefile.cpython-312.pyc
-    │           │       │   │   │   │   └── weakref_finalize.cpython-312.pyc
     │           │       │   │   │   └── weakref_finalize.py
     │           │       │   │   ├── __init__.py
-    │           │       │   │   ├── __pycache__
-    │           │       │   │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   │   └── six.cpython-312.pyc
     │           │       │   │   └── six.py
     │           │       │   ├── poolmanager.py
-    │           │       │   ├── __pycache__
-    │           │       │   │   ├── _collections.cpython-312.pyc
-    │           │       │   │   ├── connection.cpython-312.pyc
-    │           │       │   │   ├── connectionpool.cpython-312.pyc
-    │           │       │   │   ├── exceptions.cpython-312.pyc
-    │           │       │   │   ├── fields.cpython-312.pyc
-    │           │       │   │   ├── filepost.cpython-312.pyc
-    │           │       │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   ├── poolmanager.cpython-312.pyc
-    │           │       │   │   ├── request.cpython-312.pyc
-    │           │       │   │   ├── response.cpython-312.pyc
-    │           │       │   │   └── _version.cpython-312.pyc
     │           │       │   ├── request.py
     │           │       │   ├── response.py
     │           │       │   ├── util
     │           │       │   │   ├── connection.py
     │           │       │   │   ├── __init__.py
     │           │       │   │   ├── proxy.py
-    │           │       │   │   ├── __pycache__
-    │           │       │   │   │   ├── connection.cpython-312.pyc
-    │           │       │   │   │   ├── __init__.cpython-312.pyc
-    │           │       │   │   │   ├── proxy.cpython-312.pyc
-    │           │       │   │   │   ├── queue.cpython-312.pyc
-    │           │       │   │   │   ├── request.cpython-312.pyc
-    │           │       │   │   │   ├── response.cpython-312.pyc
-    │           │       │   │   │   ├── retry.cpython-312.pyc
-    │           │       │   │   │   ├── ssl_.cpython-312.pyc
-    │           │       │   │   │   ├── ssl_match_hostname.cpython-312.pyc
-    │           │       │   │   │   ├── ssltransport.cpython-312.pyc
-    │           │       │   │   │   ├── timeout.cpython-312.pyc
-    │           │       │   │   │   ├── url.cpython-312.pyc
-    │           │       │   │   │   └── wait.cpython-312.pyc
     │           │       │   │   ├── queue.py
     │           │       │   │   ├── request.py
     │           │       │   │   ├── response.py
@@ -1467,12 +981,6 @@
     │           │           ├── __init__.py
     │           │           ├── labels.py
     │           │           ├── mklabels.py
-    │           │           ├── __pycache__
-    │           │           │   ├── __init__.cpython-312.pyc
-    │           │           │   ├── labels.cpython-312.pyc
-    │           │           │   ├── mklabels.cpython-312.pyc
-    │           │           │   ├── tests.cpython-312.pyc
-    │           │           │   └── x_user_defined.cpython-312.pyc
     │           │           ├── tests.py
     │           │           └── x_user_defined.py
     │           ├── pip-24.0.dist-info
@@ -1485,6 +993,807 @@
     │           │   ├── REQUESTED
     │           │   ├── top_level.txt
     │           │   └── WHEEL
+    │           ├── pkg_resources
+    │           │   ├── api_tests.txt
+    │           │   ├── __init__.py
+    │           │   ├── py.typed
+    │           │   └── tests
+    │           │       ├── data
+    │           │       │   ├── my-test-package-source
+    │           │       │   │   ├── setup.cfg
+    │           │       │   │   └── setup.py
+    │           │       │   ├── my-test-package_unpacked-egg
+    │           │       │   │   └── my_test_package-1.0-py3.7.egg
+    │           │       │   │       └── EGG-INFO
+    │           │       │   │           ├── dependency_links.txt
+    │           │       │   │           ├── PKG-INFO
+    │           │       │   │           ├── SOURCES.txt
+    │           │       │   │           ├── top_level.txt
+    │           │       │   │           └── zip-safe
+    │           │       │   ├── my-test-package-zip
+    │           │       │   │   └── my-test-package.zip
+    │           │       │   └── my-test-package_zipped-egg
+    │           │       │       └── my_test_package-1.0-py3.7.egg
+    │           │       ├── __init__.py
+    │           │       ├── test_find_distributions.py
+    │           │       ├── test_integration_zope_interface.py
+    │           │       ├── test_markers.py
+    │           │       ├── test_pkg_resources.py
+    │           │       ├── test_resources.py
+    │           │       └── test_working_set.py
+    │           ├── pydantic
+    │           │   ├── aliases.py
+    │           │   ├── alias_generators.py
+    │           │   ├── annotated_handlers.py
+    │           │   ├── class_validators.py
+    │           │   ├── color.py
+    │           │   ├── config.py
+    │           │   ├── dataclasses.py
+    │           │   ├── datetime_parse.py
+    │           │   ├── decorator.py
+    │           │   ├── deprecated
+    │           │   │   ├── class_validators.py
+    │           │   │   ├── config.py
+    │           │   │   ├── copy_internals.py
+    │           │   │   ├── decorator.py
+    │           │   │   ├── __init__.py
+    │           │   │   ├── json.py
+    │           │   │   ├── parse.py
+    │           │   │   └── tools.py
+    │           │   ├── env_settings.py
+    │           │   ├── errors.py
+    │           │   ├── error_wrappers.py
+    │           │   ├── experimental
+    │           │   │   ├── arguments_schema.py
+    │           │   │   ├── __init__.py
+    │           │   │   └── pipeline.py
+    │           │   ├── fields.py
+    │           │   ├── functional_serializers.py
+    │           │   ├── functional_validators.py
+    │           │   ├── generics.py
+    │           │   ├── __init__.py
+    │           │   ├── _internal
+    │           │   │   ├── _config.py
+    │           │   │   ├── _core_metadata.py
+    │           │   │   ├── _core_utils.py
+    │           │   │   ├── _dataclasses.py
+    │           │   │   ├── _decorators.py
+    │           │   │   ├── _decorators_v1.py
+    │           │   │   ├── _discriminated_union.py
+    │           │   │   ├── _docs_extraction.py
+    │           │   │   ├── _fields.py
+    │           │   │   ├── _forward_ref.py
+    │           │   │   ├── _generate_schema.py
+    │           │   │   ├── _generics.py
+    │           │   │   ├── _git.py
+    │           │   │   ├── _import_utils.py
+    │           │   │   ├── __init__.py
+    │           │   │   ├── _internal_dataclass.py
+    │           │   │   ├── _known_annotated_metadata.py
+    │           │   │   ├── _mock_val_ser.py
+    │           │   │   ├── _model_construction.py
+    │           │   │   ├── _namespace_utils.py
+    │           │   │   ├── _repr.py
+    │           │   │   ├── _schema_gather.py
+    │           │   │   ├── _schema_generation_shared.py
+    │           │   │   ├── _serializers.py
+    │           │   │   ├── _signature.py
+    │           │   │   ├── _typing_extra.py
+    │           │   │   ├── _utils.py
+    │           │   │   ├── _validate_call.py
+    │           │   │   └── _validators.py
+    │           │   ├── json.py
+    │           │   ├── json_schema.py
+    │           │   ├── main.py
+    │           │   ├── _migration.py
+    │           │   ├── mypy.py
+    │           │   ├── networks.py
+    │           │   ├── parse.py
+    │           │   ├── plugin
+    │           │   │   ├── __init__.py
+    │           │   │   ├── _loader.py
+    │           │   │   └── _schema_validator.py
+    │           │   ├── py.typed
+    │           │   ├── root_model.py
+    │           │   ├── schema.py
+    │           │   ├── tools.py
+    │           │   ├── type_adapter.py
+    │           │   ├── types.py
+    │           │   ├── typing.py
+    │           │   ├── utils.py
+    │           │   ├── v1
+    │           │   │   ├── annotated_types.py
+    │           │   │   ├── class_validators.py
+    │           │   │   ├── color.py
+    │           │   │   ├── config.py
+    │           │   │   ├── dataclasses.py
+    │           │   │   ├── datetime_parse.py
+    │           │   │   ├── decorator.py
+    │           │   │   ├── env_settings.py
+    │           │   │   ├── errors.py
+    │           │   │   ├── error_wrappers.py
+    │           │   │   ├── fields.py
+    │           │   │   ├── generics.py
+    │           │   │   ├── _hypothesis_plugin.py
+    │           │   │   ├── __init__.py
+    │           │   │   ├── json.py
+    │           │   │   ├── main.py
+    │           │   │   ├── mypy.py
+    │           │   │   ├── networks.py
+    │           │   │   ├── parse.py
+    │           │   │   ├── py.typed
+    │           │   │   ├── schema.py
+    │           │   │   ├── tools.py
+    │           │   │   ├── types.py
+    │           │   │   ├── typing.py
+    │           │   │   ├── utils.py
+    │           │   │   ├── validators.py
+    │           │   │   └── version.py
+    │           │   ├── validate_call_decorator.py
+    │           │   ├── validators.py
+    │           │   ├── version.py
+    │           │   └── warnings.py
+    │           ├── pydantic-2.11.5.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── licenses
+    │           │   │   └── LICENSE
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   ├── REQUESTED
+    │           │   └── WHEEL
+    │           ├── pydantic_core
+    │           │   ├── core_schema.py
+    │           │   ├── __init__.py
+    │           │   ├── _pydantic_core.cpython-312-x86_64-linux-gnu.so
+    │           │   ├── _pydantic_core.pyi
+    │           │   └── py.typed
+    │           ├── pydantic_core-2.33.2.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── licenses
+    │           │   │   └── LICENSE
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   └── WHEEL
+    │           ├── pytz
+    │           │   ├── exceptions.py
+    │           │   ├── __init__.py
+    │           │   ├── lazy.py
+    │           │   ├── reference.py
+    │           │   ├── tzfile.py
+    │           │   ├── tzinfo.py
+    │           │   └── zoneinfo
+    │           │       ├── Africa
+    │           │       │   ├── Abidjan
+    │           │       │   ├── Accra
+    │           │       │   ├── Addis_Ababa
+    │           │       │   ├── Algiers
+    │           │       │   ├── Asmara
+    │           │       │   ├── Asmera
+    │           │       │   ├── Bamako
+    │           │       │   ├── Bangui
+    │           │       │   ├── Banjul
+    │           │       │   ├── Bissau
+    │           │       │   ├── Blantyre
+    │           │       │   ├── Brazzaville
+    │           │       │   ├── Bujumbura
+    │           │       │   ├── Cairo
+    │           │       │   ├── Casablanca
+    │           │       │   ├── Ceuta
+    │           │       │   ├── Conakry
+    │           │       │   ├── Dakar
+    │           │       │   ├── Dar_es_Salaam
+    │           │       │   ├── Djibouti
+    │           │       │   ├── Douala
+    │           │       │   ├── El_Aaiun
+    │           │       │   ├── Freetown
+    │           │       │   ├── Gaborone
+    │           │       │   ├── Harare
+    │           │       │   ├── Johannesburg
+    │           │       │   ├── Juba
+    │           │       │   ├── Kampala
+    │           │       │   ├── Khartoum
+    │           │       │   ├── Kigali
+    │           │       │   ├── Kinshasa
+    │           │       │   ├── Lagos
+    │           │       │   ├── Libreville
+    │           │       │   ├── Lome
+    │           │       │   ├── Luanda
+    │           │       │   ├── Lubumbashi
+    │           │       │   ├── Lusaka
+    │           │       │   ├── Malabo
+    │           │       │   ├── Maputo
+    │           │       │   ├── Maseru
+    │           │       │   ├── Mbabane
+    │           │       │   ├── Mogadishu
+    │           │       │   ├── Monrovia
+    │           │       │   ├── Nairobi
+    │           │       │   ├── Ndjamena
+    │           │       │   ├── Niamey
+    │           │       │   ├── Nouakchott
+    │           │       │   ├── Ouagadougou
+    │           │       │   ├── Porto-Novo
+    │           │       │   ├── Sao_Tome
+    │           │       │   ├── Timbuktu
+    │           │       │   ├── Tripoli
+    │           │       │   ├── Tunis
+    │           │       │   └── Windhoek
+    │           │       ├── America
+    │           │       │   ├── Adak
+    │           │       │   ├── Anchorage
+    │           │       │   ├── Anguilla
+    │           │       │   ├── Antigua
+    │           │       │   ├── Araguaina
+    │           │       │   ├── Argentina
+    │           │       │   │   ├── Buenos_Aires
+    │           │       │   │   ├── Catamarca
+    │           │       │   │   ├── ComodRivadavia
+    │           │       │   │   ├── Cordoba
+    │           │       │   │   ├── Jujuy
+    │           │       │   │   ├── La_Rioja
+    │           │       │   │   ├── Mendoza
+    │           │       │   │   ├── Rio_Gallegos
+    │           │       │   │   ├── Salta
+    │           │       │   │   ├── San_Juan
+    │           │       │   │   ├── San_Luis
+    │           │       │   │   ├── Tucuman
+    │           │       │   │   └── Ushuaia
+    │           │       │   ├── Aruba
+    │           │       │   ├── Asuncion
+    │           │       │   ├── Atikokan
+    │           │       │   ├── Atka
+    │           │       │   ├── Bahia
+    │           │       │   ├── Bahia_Banderas
+    │           │       │   ├── Barbados
+    │           │       │   ├── Belem
+    │           │       │   ├── Belize
+    │           │       │   ├── Blanc-Sablon
+    │           │       │   ├── Boa_Vista
+    │           │       │   ├── Bogota
+    │           │       │   ├── Boise
+    │           │       │   ├── Buenos_Aires
+    │           │       │   ├── Cambridge_Bay
+    │           │       │   ├── Campo_Grande
+    │           │       │   ├── Cancun
+    │           │       │   ├── Caracas
+    │           │       │   ├── Catamarca
+    │           │       │   ├── Cayenne
+    │           │       │   ├── Cayman
+    │           │       │   ├── Chicago
+    │           │       │   ├── Chihuahua
+    │           │       │   ├── Ciudad_Juarez
+    │           │       │   ├── Coral_Harbour
+    │           │       │   ├── Cordoba
+    │           │       │   ├── Costa_Rica
+    │           │       │   ├── Coyhaique
+    │           │       │   ├── Creston
+    │           │       │   ├── Cuiaba
+    │           │       │   ├── Curacao
+    │           │       │   ├── Danmarkshavn
+    │           │       │   ├── Dawson
+    │           │       │   ├── Dawson_Creek
+    │           │       │   ├── Denver
+    │           │       │   ├── Detroit
+    │           │       │   ├── Dominica
+    │           │       │   ├── Edmonton
+    │           │       │   ├── Eirunepe
+    │           │       │   ├── El_Salvador
+    │           │       │   ├── Ensenada
+    │           │       │   ├── Fortaleza
+    │           │       │   ├── Fort_Nelson
+    │           │       │   ├── Fort_Wayne
+    │           │       │   ├── Glace_Bay
+    │           │       │   ├── Godthab
+    │           │       │   ├── Goose_Bay
+    │           │       │   ├── Grand_Turk
+    │           │       │   ├── Grenada
+    │           │       │   ├── Guadeloupe
+    │           │       │   ├── Guatemala
+    │           │       │   ├── Guayaquil
+    │           │       │   ├── Guyana
+    │           │       │   ├── Halifax
+    │           │       │   ├── Havana
+    │           │       │   ├── Hermosillo
+    │           │       │   ├── Indiana
+    │           │       │   │   ├── Indianapolis
+    │           │       │   │   ├── Knox
+    │           │       │   │   ├── Marengo
+    │           │       │   │   ├── Petersburg
+    │           │       │   │   ├── Tell_City
+    │           │       │   │   ├── Vevay
+    │           │       │   │   ├── Vincennes
+    │           │       │   │   └── Winamac
+    │           │       │   ├── Indianapolis
+    │           │       │   ├── Inuvik
+    │           │       │   ├── Iqaluit
+    │           │       │   ├── Jamaica
+    │           │       │   ├── Jujuy
+    │           │       │   ├── Juneau
+    │           │       │   ├── Kentucky
+    │           │       │   │   ├── Louisville
+    │           │       │   │   └── Monticello
+    │           │       │   ├── Knox_IN
+    │           │       │   ├── Kralendijk
+    │           │       │   ├── La_Paz
+    │           │       │   ├── Lima
+    │           │       │   ├── Los_Angeles
+    │           │       │   ├── Louisville
+    │           │       │   ├── Lower_Princes
+    │           │       │   ├── Maceio
+    │           │       │   ├── Managua
+    │           │       │   ├── Manaus
+    │           │       │   ├── Marigot
+    │           │       │   ├── Martinique
+    │           │       │   ├── Matamoros
+    │           │       │   ├── Mazatlan
+    │           │       │   ├── Mendoza
+    │           │       │   ├── Menominee
+    │           │       │   ├── Merida
+    │           │       │   ├── Metlakatla
+    │           │       │   ├── Mexico_City
+    │           │       │   ├── Miquelon
+    │           │       │   ├── Moncton
+    │           │       │   ├── Monterrey
+    │           │       │   ├── Montevideo
+    │           │       │   ├── Montreal
+    │           │       │   ├── Montserrat
+    │           │       │   ├── Nassau
+    │           │       │   ├── New_York
+    │           │       │   ├── Nipigon
+    │           │       │   ├── Nome
+    │           │       │   ├── Noronha
+    │           │       │   ├── North_Dakota
+    │           │       │   │   ├── Beulah
+    │           │       │   │   ├── Center
+    │           │       │   │   └── New_Salem
+    │           │       │   ├── Nuuk
+    │           │       │   ├── Ojinaga
+    │           │       │   ├── Panama
+    │           │       │   ├── Pangnirtung
+    │           │       │   ├── Paramaribo
+    │           │       │   ├── Phoenix
+    │           │       │   ├── Port-au-Prince
+    │           │       │   ├── Porto_Acre
+    │           │       │   ├── Port_of_Spain
+    │           │       │   ├── Porto_Velho
+    │           │       │   ├── Puerto_Rico
+    │           │       │   ├── Punta_Arenas
+    │           │       │   ├── Rainy_River
+    │           │       │   ├── Rankin_Inlet
+    │           │       │   ├── Recife
+    │           │       │   ├── Regina
+    │           │       │   ├── Resolute
+    │           │       │   ├── Rio_Branco
+    │           │       │   ├── Rosario
+    │           │       │   ├── Santa_Isabel
+    │           │       │   ├── Santarem
+    │           │       │   ├── Santiago
+    │           │       │   ├── Santo_Domingo
+    │           │       │   ├── Sao_Paulo
+    │           │       │   ├── Scoresbysund
+    │           │       │   ├── Shiprock
+    │           │       │   ├── Sitka
+    │           │       │   ├── St_Barthelemy
+    │           │       │   ├── St_Johns
+    │           │       │   ├── St_Kitts
+    │           │       │   ├── St_Lucia
+    │           │       │   ├── St_Thomas
+    │           │       │   ├── St_Vincent
+    │           │       │   ├── Swift_Current
+    │           │       │   ├── Tegucigalpa
+    │           │       │   ├── Thule
+    │           │       │   ├── Thunder_Bay
+    │           │       │   ├── Tijuana
+    │           │       │   ├── Toronto
+    │           │       │   ├── Tortola
+    │           │       │   ├── Vancouver
+    │           │       │   ├── Virgin
+    │           │       │   ├── Whitehorse
+    │           │       │   ├── Winnipeg
+    │           │       │   ├── Yakutat
+    │           │       │   └── Yellowknife
+    │           │       ├── Antarctica
+    │           │       │   ├── Casey
+    │           │       │   ├── Davis
+    │           │       │   ├── DumontDUrville
+    │           │       │   ├── Macquarie
+    │           │       │   ├── Mawson
+    │           │       │   ├── McMurdo
+    │           │       │   ├── Palmer
+    │           │       │   ├── Rothera
+    │           │       │   ├── South_Pole
+    │           │       │   ├── Syowa
+    │           │       │   ├── Troll
+    │           │       │   └── Vostok
+    │           │       ├── Arctic
+    │           │       │   └── Longyearbyen
+    │           │       ├── Asia
+    │           │       │   ├── Aden
+    │           │       │   ├── Almaty
+    │           │       │   ├── Amman
+    │           │       │   ├── Anadyr
+    │           │       │   ├── Aqtau
+    │           │       │   ├── Aqtobe
+    │           │       │   ├── Ashgabat
+    │           │       │   ├── Ashkhabad
+    │           │       │   ├── Atyrau
+    │           │       │   ├── Baghdad
+    │           │       │   ├── Bahrain
+    │           │       │   ├── Baku
+    │           │       │   ├── Bangkok
+    │           │       │   ├── Barnaul
+    │           │       │   ├── Beirut
+    │           │       │   ├── Bishkek
+    │           │       │   ├── Brunei
+    │           │       │   ├── Calcutta
+    │           │       │   ├── Chita
+    │           │       │   ├── Choibalsan
+    │           │       │   ├── Chongqing
+    │           │       │   ├── Chungking
+    │           │       │   ├── Colombo
+    │           │       │   ├── Dacca
+    │           │       │   ├── Damascus
+    │           │       │   ├── Dhaka
+    │           │       │   ├── Dili
+    │           │       │   ├── Dubai
+    │           │       │   ├── Dushanbe
+    │           │       │   ├── Famagusta
+    │           │       │   ├── Gaza
+    │           │       │   ├── Harbin
+    │           │       │   ├── Hebron
+    │           │       │   ├── Ho_Chi_Minh
+    │           │       │   ├── Hong_Kong
+    │           │       │   ├── Hovd
+    │           │       │   ├── Irkutsk
+    │           │       │   ├── Istanbul
+    │           │       │   ├── Jakarta
+    │           │       │   ├── Jayapura
+    │           │       │   ├── Jerusalem
+    │           │       │   ├── Kabul
+    │           │       │   ├── Kamchatka
+    │           │       │   ├── Karachi
+    │           │       │   ├── Kashgar
+    │           │       │   ├── Kathmandu
+    │           │       │   ├── Katmandu
+    │           │       │   ├── Khandyga
+    │           │       │   ├── Kolkata
+    │           │       │   ├── Krasnoyarsk
+    │           │       │   ├── Kuala_Lumpur
+    │           │       │   ├── Kuching
+    │           │       │   ├── Kuwait
+    │           │       │   ├── Macao
+    │           │       │   ├── Macau
+    │           │       │   ├── Magadan
+    │           │       │   ├── Makassar
+    │           │       │   ├── Manila
+    │           │       │   ├── Muscat
+    │           │       │   ├── Nicosia
+    │           │       │   ├── Novokuznetsk
+    │           │       │   ├── Novosibirsk
+    │           │       │   ├── Omsk
+    │           │       │   ├── Oral
+    │           │       │   ├── Phnom_Penh
+    │           │       │   ├── Pontianak
+    │           │       │   ├── Pyongyang
+    │           │       │   ├── Qatar
+    │           │       │   ├── Qostanay
+    │           │       │   ├── Qyzylorda
+    │           │       │   ├── Rangoon
+    │           │       │   ├── Riyadh
+    │           │       │   ├── Saigon
+    │           │       │   ├── Sakhalin
+    │           │       │   ├── Samarkand
+    │           │       │   ├── Seoul
+    │           │       │   ├── Shanghai
+    │           │       │   ├── Singapore
+    │           │       │   ├── Srednekolymsk
+    │           │       │   ├── Taipei
+    │           │       │   ├── Tashkent
+    │           │       │   ├── Tbilisi
+    │           │       │   ├── Tehran
+    │           │       │   ├── Tel_Aviv
+    │           │       │   ├── Thimbu
+    │           │       │   ├── Thimphu
+    │           │       │   ├── Tokyo
+    │           │       │   ├── Tomsk
+    │           │       │   ├── Ujung_Pandang
+    │           │       │   ├── Ulaanbaatar
+    │           │       │   ├── Ulan_Bator
+    │           │       │   ├── Urumqi
+    │           │       │   ├── Ust-Nera
+    │           │       │   ├── Vientiane
+    │           │       │   ├── Vladivostok
+    │           │       │   ├── Yakutsk
+    │           │       │   ├── Yangon
+    │           │       │   ├── Yekaterinburg
+    │           │       │   └── Yerevan
+    │           │       ├── Atlantic
+    │           │       │   ├── Azores
+    │           │       │   ├── Bermuda
+    │           │       │   ├── Canary
+    │           │       │   ├── Cape_Verde
+    │           │       │   ├── Faeroe
+    │           │       │   ├── Faroe
+    │           │       │   ├── Jan_Mayen
+    │           │       │   ├── Madeira
+    │           │       │   ├── Reykjavik
+    │           │       │   ├── South_Georgia
+    │           │       │   ├── Stanley
+    │           │       │   └── St_Helena
+    │           │       ├── Australia
+    │           │       │   ├── ACT
+    │           │       │   ├── Adelaide
+    │           │       │   ├── Brisbane
+    │           │       │   ├── Broken_Hill
+    │           │       │   ├── Canberra
+    │           │       │   ├── Currie
+    │           │       │   ├── Darwin
+    │           │       │   ├── Eucla
+    │           │       │   ├── Hobart
+    │           │       │   ├── LHI
+    │           │       │   ├── Lindeman
+    │           │       │   ├── Lord_Howe
+    │           │       │   ├── Melbourne
+    │           │       │   ├── North
+    │           │       │   ├── NSW
+    │           │       │   ├── Perth
+    │           │       │   ├── Queensland
+    │           │       │   ├── South
+    │           │       │   ├── Sydney
+    │           │       │   ├── Tasmania
+    │           │       │   ├── Victoria
+    │           │       │   ├── West
+    │           │       │   └── Yancowinna
+    │           │       ├── Brazil
+    │           │       │   ├── Acre
+    │           │       │   ├── DeNoronha
+    │           │       │   ├── East
+    │           │       │   └── West
+    │           │       ├── Canada
+    │           │       │   ├── Atlantic
+    │           │       │   ├── Central
+    │           │       │   ├── Eastern
+    │           │       │   ├── Mountain
+    │           │       │   ├── Newfoundland
+    │           │       │   ├── Pacific
+    │           │       │   ├── Saskatchewan
+    │           │       │   └── Yukon
+    │           │       ├── CET
+    │           │       ├── Chile
+    │           │       │   ├── Continental
+    │           │       │   └── EasterIsland
+    │           │       ├── CST6CDT
+    │           │       ├── Cuba
+    │           │       ├── EET
+    │           │       ├── Egypt
+    │           │       ├── Eire
+    │           │       ├── EST
+    │           │       ├── EST5EDT
+    │           │       ├── Etc
+    │           │       │   ├── GMT
+    │           │       │   ├── GMT+0
+    │           │       │   ├── GMT-0
+    │           │       │   ├── GMT0
+    │           │       │   ├── GMT+1
+    │           │       │   ├── GMT-1
+    │           │       │   ├── GMT+10
+    │           │       │   ├── GMT-10
+    │           │       │   ├── GMT+11
+    │           │       │   ├── GMT-11
+    │           │       │   ├── GMT+12
+    │           │       │   ├── GMT-12
+    │           │       │   ├── GMT-13
+    │           │       │   ├── GMT-14
+    │           │       │   ├── GMT+2
+    │           │       │   ├── GMT-2
+    │           │       │   ├── GMT+3
+    │           │       │   ├── GMT-3
+    │           │       │   ├── GMT+4
+    │           │       │   ├── GMT-4
+    │           │       │   ├── GMT+5
+    │           │       │   ├── GMT-5
+    │           │       │   ├── GMT+6
+    │           │       │   ├── GMT-6
+    │           │       │   ├── GMT+7
+    │           │       │   ├── GMT-7
+    │           │       │   ├── GMT+8
+    │           │       │   ├── GMT-8
+    │           │       │   ├── GMT+9
+    │           │       │   ├── GMT-9
+    │           │       │   ├── Greenwich
+    │           │       │   ├── UCT
+    │           │       │   ├── Universal
+    │           │       │   ├── UTC
+    │           │       │   └── Zulu
+    │           │       ├── Europe
+    │           │       │   ├── Amsterdam
+    │           │       │   ├── Andorra
+    │           │       │   ├── Astrakhan
+    │           │       │   ├── Athens
+    │           │       │   ├── Belfast
+    │           │       │   ├── Belgrade
+    │           │       │   ├── Berlin
+    │           │       │   ├── Bratislava
+    │           │       │   ├── Brussels
+    │           │       │   ├── Bucharest
+    │           │       │   ├── Budapest
+    │           │       │   ├── Busingen
+    │           │       │   ├── Chisinau
+    │           │       │   ├── Copenhagen
+    │           │       │   ├── Dublin
+    │           │       │   ├── Gibraltar
+    │           │       │   ├── Guernsey
+    │           │       │   ├── Helsinki
+    │           │       │   ├── Isle_of_Man
+    │           │       │   ├── Istanbul
+    │           │       │   ├── Jersey
+    │           │       │   ├── Kaliningrad
+    │           │       │   ├── Kiev
+    │           │       │   ├── Kirov
+    │           │       │   ├── Kyiv
+    │           │       │   ├── Lisbon
+    │           │       │   ├── Ljubljana
+    │           │       │   ├── London
+    │           │       │   ├── Luxembourg
+    │           │       │   ├── Madrid
+    │           │       │   ├── Malta
+    │           │       │   ├── Mariehamn
+    │           │       │   ├── Minsk
+    │           │       │   ├── Monaco
+    │           │       │   ├── Moscow
+    │           │       │   ├── Nicosia
+    │           │       │   ├── Oslo
+    │           │       │   ├── Paris
+    │           │       │   ├── Podgorica
+    │           │       │   ├── Prague
+    │           │       │   ├── Riga
+    │           │       │   ├── Rome
+    │           │       │   ├── Samara
+    │           │       │   ├── San_Marino
+    │           │       │   ├── Sarajevo
+    │           │       │   ├── Saratov
+    │           │       │   ├── Simferopol
+    │           │       │   ├── Skopje
+    │           │       │   ├── Sofia
+    │           │       │   ├── Stockholm
+    │           │       │   ├── Tallinn
+    │           │       │   ├── Tirane
+    │           │       │   ├── Tiraspol
+    │           │       │   ├── Ulyanovsk
+    │           │       │   ├── Uzhgorod
+    │           │       │   ├── Vaduz
+    │           │       │   ├── Vatican
+    │           │       │   ├── Vienna
+    │           │       │   ├── Vilnius
+    │           │       │   ├── Volgograd
+    │           │       │   ├── Warsaw
+    │           │       │   ├── Zagreb
+    │           │       │   ├── Zaporozhye
+    │           │       │   └── Zurich
+    │           │       ├── Factory
+    │           │       ├── GB
+    │           │       ├── GB-Eire
+    │           │       ├── GMT
+    │           │       ├── GMT+0
+    │           │       ├── GMT-0
+    │           │       ├── GMT0
+    │           │       ├── Greenwich
+    │           │       ├── Hongkong
+    │           │       ├── HST
+    │           │       ├── Iceland
+    │           │       ├── Indian
+    │           │       │   ├── Antananarivo
+    │           │       │   ├── Chagos
+    │           │       │   ├── Christmas
+    │           │       │   ├── Cocos
+    │           │       │   ├── Comoro
+    │           │       │   ├── Kerguelen
+    │           │       │   ├── Mahe
+    │           │       │   ├── Maldives
+    │           │       │   ├── Mauritius
+    │           │       │   ├── Mayotte
+    │           │       │   └── Reunion
+    │           │       ├── Iran
+    │           │       ├── iso3166.tab
+    │           │       ├── Israel
+    │           │       ├── Jamaica
+    │           │       ├── Japan
+    │           │       ├── Kwajalein
+    │           │       ├── leapseconds
+    │           │       ├── Libya
+    │           │       ├── MET
+    │           │       ├── Mexico
+    │           │       │   ├── BajaNorte
+    │           │       │   ├── BajaSur
+    │           │       │   └── General
+    │           │       ├── MST
+    │           │       ├── MST7MDT
+    │           │       ├── Navajo
+    │           │       ├── NZ
+    │           │       ├── NZ-CHAT
+    │           │       ├── Pacific
+    │           │       │   ├── Apia
+    │           │       │   ├── Auckland
+    │           │       │   ├── Bougainville
+    │           │       │   ├── Chatham
+    │           │       │   ├── Chuuk
+    │           │       │   ├── Easter
+    │           │       │   ├── Efate
+    │           │       │   ├── Enderbury
+    │           │       │   ├── Fakaofo
+    │           │       │   ├── Fiji
+    │           │       │   ├── Funafuti
+    │           │       │   ├── Galapagos
+    │           │       │   ├── Gambier
+    │           │       │   ├── Guadalcanal
+    │           │       │   ├── Guam
+    │           │       │   ├── Honolulu
+    │           │       │   ├── Johnston
+    │           │       │   ├── Kanton
+    │           │       │   ├── Kiritimati
+    │           │       │   ├── Kosrae
+    │           │       │   ├── Kwajalein
+    │           │       │   ├── Majuro
+    │           │       │   ├── Marquesas
+    │           │       │   ├── Midway
+    │           │       │   ├── Nauru
+    │           │       │   ├── Niue
+    │           │       │   ├── Norfolk
+    │           │       │   ├── Noumea
+    │           │       │   ├── Pago_Pago
+    │           │       │   ├── Palau
+    │           │       │   ├── Pitcairn
+    │           │       │   ├── Pohnpei
+    │           │       │   ├── Ponape
+    │           │       │   ├── Port_Moresby
+    │           │       │   ├── Rarotonga
+    │           │       │   ├── Saipan
+    │           │       │   ├── Samoa
+    │           │       │   ├── Tahiti
+    │           │       │   ├── Tarawa
+    │           │       │   ├── Tongatapu
+    │           │       │   ├── Truk
+    │           │       │   ├── Wake
+    │           │       │   ├── Wallis
+    │           │       │   └── Yap
+    │           │       ├── Poland
+    │           │       ├── Portugal
+    │           │       ├── PRC
+    │           │       ├── PST8PDT
+    │           │       ├── ROC
+    │           │       ├── ROK
+    │           │       ├── Singapore
+    │           │       ├── Turkey
+    │           │       ├── tzdata.zi
+    │           │       ├── UCT
+    │           │       ├── Universal
+    │           │       ├── US
+    │           │       │   ├── Alaska
+    │           │       │   ├── Aleutian
+    │           │       │   ├── Arizona
+    │           │       │   ├── Central
+    │           │       │   ├── Eastern
+    │           │       │   ├── East-Indiana
+    │           │       │   ├── Hawaii
+    │           │       │   ├── Indiana-Starke
+    │           │       │   ├── Michigan
+    │           │       │   ├── Mountain
+    │           │       │   ├── Pacific
+    │           │       │   └── Samoa
+    │           │       ├── UTC
+    │           │       ├── WET
+    │           │       ├── W-SU
+    │           │       ├── zone1970.tab
+    │           │       ├── zonenow.tab
+    │           │       ├── zone.tab
+    │           │       └── Zulu
+    │           ├── pytz-2025.2.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── LICENSE.txt
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   ├── top_level.txt
+    │           │   ├── WHEEL
+    │           │   └── zip-safe
     │           ├── requests
     │           │   ├── adapters.py
     │           │   ├── api.py
@@ -1499,25 +1808,6 @@
     │           │   ├── _internal_utils.py
     │           │   ├── models.py
     │           │   ├── packages.py
-    │           │   ├── __pycache__
-    │           │   │   ├── adapters.cpython-312.pyc
-    │           │   │   ├── api.cpython-312.pyc
-    │           │   │   ├── auth.cpython-312.pyc
-    │           │   │   ├── certs.cpython-312.pyc
-    │           │   │   ├── compat.cpython-312.pyc
-    │           │   │   ├── cookies.cpython-312.pyc
-    │           │   │   ├── exceptions.cpython-312.pyc
-    │           │   │   ├── help.cpython-312.pyc
-    │           │   │   ├── hooks.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── _internal_utils.cpython-312.pyc
-    │           │   │   ├── models.cpython-312.pyc
-    │           │   │   ├── packages.cpython-312.pyc
-    │           │   │   ├── sessions.cpython-312.pyc
-    │           │   │   ├── status_codes.cpython-312.pyc
-    │           │   │   ├── structures.cpython-312.pyc
-    │           │   │   ├── utils.cpython-312.pyc
-    │           │   │   └── __version__.cpython-312.pyc
     │           │   ├── sessions.py
     │           │   ├── status_codes.py
     │           │   ├── structures.py
@@ -1531,6 +1821,585 @@
     │           │   ├── REQUESTED
     │           │   ├── top_level.txt
     │           │   └── WHEEL
+    │           ├── setuptools
+    │           │   ├── archive_util.py
+    │           │   ├── build_meta.py
+    │           │   ├── cli-32.exe
+    │           │   ├── cli-64.exe
+    │           │   ├── cli-arm64.exe
+    │           │   ├── cli.exe
+    │           │   ├── command
+    │           │   │   ├── alias.py
+    │           │   │   ├── bdist_egg.py
+    │           │   │   ├── bdist_rpm.py
+    │           │   │   ├── bdist_wheel.py
+    │           │   │   ├── build_clib.py
+    │           │   │   ├── build_ext.py
+    │           │   │   ├── build.py
+    │           │   │   ├── build_py.py
+    │           │   │   ├── develop.py
+    │           │   │   ├── dist_info.py
+    │           │   │   ├── easy_install.py
+    │           │   │   ├── editable_wheel.py
+    │           │   │   ├── egg_info.py
+    │           │   │   ├── __init__.py
+    │           │   │   ├── install_egg_info.py
+    │           │   │   ├── install_lib.py
+    │           │   │   ├── install.py
+    │           │   │   ├── install_scripts.py
+    │           │   │   ├── launcher manifest.xml
+    │           │   │   ├── _requirestxt.py
+    │           │   │   ├── rotate.py
+    │           │   │   ├── saveopts.py
+    │           │   │   ├── sdist.py
+    │           │   │   ├── setopt.py
+    │           │   │   └── test.py
+    │           │   ├── compat
+    │           │   │   ├── __init__.py
+    │           │   │   ├── py310.py
+    │           │   │   ├── py311.py
+    │           │   │   ├── py312.py
+    │           │   │   └── py39.py
+    │           │   ├── config
+    │           │   │   ├── _apply_pyprojecttoml.py
+    │           │   │   ├── distutils.schema.json
+    │           │   │   ├── expand.py
+    │           │   │   ├── __init__.py
+    │           │   │   ├── NOTICE
+    │           │   │   ├── pyprojecttoml.py
+    │           │   │   ├── setupcfg.py
+    │           │   │   ├── setuptools.schema.json
+    │           │   │   └── _validate_pyproject
+    │           │   │       ├── error_reporting.py
+    │           │   │       ├── extra_validations.py
+    │           │   │       ├── fastjsonschema_exceptions.py
+    │           │   │       ├── fastjsonschema_validations.py
+    │           │   │       ├── formats.py
+    │           │   │       ├── __init__.py
+    │           │   │       └── NOTICE
+    │           │   ├── _core_metadata.py
+    │           │   ├── depends.py
+    │           │   ├── _discovery.py
+    │           │   ├── discovery.py
+    │           │   ├── dist.py
+    │           │   ├── _distutils
+    │           │   │   ├── archive_util.py
+    │           │   │   ├── ccompiler.py
+    │           │   │   ├── cmd.py
+    │           │   │   ├── command
+    │           │   │   │   ├── bdist_dumb.py
+    │           │   │   │   ├── bdist.py
+    │           │   │   │   ├── bdist_rpm.py
+    │           │   │   │   ├── build_clib.py
+    │           │   │   │   ├── build_ext.py
+    │           │   │   │   ├── build.py
+    │           │   │   │   ├── build_py.py
+    │           │   │   │   ├── build_scripts.py
+    │           │   │   │   ├── check.py
+    │           │   │   │   ├── clean.py
+    │           │   │   │   ├── config.py
+    │           │   │   │   ├── _framework_compat.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── install_data.py
+    │           │   │   │   ├── install_egg_info.py
+    │           │   │   │   ├── install_headers.py
+    │           │   │   │   ├── install_lib.py
+    │           │   │   │   ├── install.py
+    │           │   │   │   ├── install_scripts.py
+    │           │   │   │   └── sdist.py
+    │           │   │   ├── compat
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── numpy.py
+    │           │   │   │   └── py39.py
+    │           │   │   ├── compilers
+    │           │   │   │   └── C
+    │           │   │   │       ├── base.py
+    │           │   │   │       ├── cygwin.py
+    │           │   │   │       ├── errors.py
+    │           │   │   │       ├── msvc.py
+    │           │   │   │       ├── tests
+    │           │   │   │       │   ├── test_base.py
+    │           │   │   │       │   ├── test_cygwin.py
+    │           │   │   │       │   ├── test_mingw.py
+    │           │   │   │       │   ├── test_msvc.py
+    │           │   │   │       │   └── test_unix.py
+    │           │   │   │       ├── unix.py
+    │           │   │   │       └── zos.py
+    │           │   │   ├── core.py
+    │           │   │   ├── cygwinccompiler.py
+    │           │   │   ├── debug.py
+    │           │   │   ├── dep_util.py
+    │           │   │   ├── dir_util.py
+    │           │   │   ├── dist.py
+    │           │   │   ├── errors.py
+    │           │   │   ├── extension.py
+    │           │   │   ├── fancy_getopt.py
+    │           │   │   ├── filelist.py
+    │           │   │   ├── file_util.py
+    │           │   │   ├── __init__.py
+    │           │   │   ├── _log.py
+    │           │   │   ├── log.py
+    │           │   │   ├── _macos_compat.py
+    │           │   │   ├── _modified.py
+    │           │   │   ├── _msvccompiler.py
+    │           │   │   ├── spawn.py
+    │           │   │   ├── sysconfig.py
+    │           │   │   ├── tests
+    │           │   │   │   ├── compat
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   └── py39.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── support.py
+    │           │   │   │   ├── test_archive_util.py
+    │           │   │   │   ├── test_bdist_dumb.py
+    │           │   │   │   ├── test_bdist.py
+    │           │   │   │   ├── test_bdist_rpm.py
+    │           │   │   │   ├── test_build_clib.py
+    │           │   │   │   ├── test_build_ext.py
+    │           │   │   │   ├── test_build.py
+    │           │   │   │   ├── test_build_py.py
+    │           │   │   │   ├── test_build_scripts.py
+    │           │   │   │   ├── test_check.py
+    │           │   │   │   ├── test_clean.py
+    │           │   │   │   ├── test_cmd.py
+    │           │   │   │   ├── test_config_cmd.py
+    │           │   │   │   ├── test_core.py
+    │           │   │   │   ├── test_dir_util.py
+    │           │   │   │   ├── test_dist.py
+    │           │   │   │   ├── test_extension.py
+    │           │   │   │   ├── test_filelist.py
+    │           │   │   │   ├── test_file_util.py
+    │           │   │   │   ├── test_install_data.py
+    │           │   │   │   ├── test_install_headers.py
+    │           │   │   │   ├── test_install_lib.py
+    │           │   │   │   ├── test_install.py
+    │           │   │   │   ├── test_install_scripts.py
+    │           │   │   │   ├── test_log.py
+    │           │   │   │   ├── test_modified.py
+    │           │   │   │   ├── test_sdist.py
+    │           │   │   │   ├── test_spawn.py
+    │           │   │   │   ├── test_sysconfig.py
+    │           │   │   │   ├── test_text_file.py
+    │           │   │   │   ├── test_util.py
+    │           │   │   │   ├── test_versionpredicate.py
+    │           │   │   │   ├── test_version.py
+    │           │   │   │   └── unix_compat.py
+    │           │   │   ├── text_file.py
+    │           │   │   ├── unixccompiler.py
+    │           │   │   ├── util.py
+    │           │   │   ├── versionpredicate.py
+    │           │   │   ├── version.py
+    │           │   │   └── zosccompiler.py
+    │           │   ├── _entry_points.py
+    │           │   ├── errors.py
+    │           │   ├── extension.py
+    │           │   ├── glob.py
+    │           │   ├── gui-32.exe
+    │           │   ├── gui-64.exe
+    │           │   ├── gui-arm64.exe
+    │           │   ├── gui.exe
+    │           │   ├── _importlib.py
+    │           │   ├── _imp.py
+    │           │   ├── __init__.py
+    │           │   ├── installer.py
+    │           │   ├── _itertools.py
+    │           │   ├── launch.py
+    │           │   ├── logging.py
+    │           │   ├── modified.py
+    │           │   ├── monkey.py
+    │           │   ├── msvc.py
+    │           │   ├── namespaces.py
+    │           │   ├── _normalization.py
+    │           │   ├── _path.py
+    │           │   ├── _reqs.py
+    │           │   ├── script (dev).tmpl
+    │           │   ├── _scripts.py
+    │           │   ├── script.tmpl
+    │           │   ├── _shutil.py
+    │           │   ├── _static.py
+    │           │   ├── tests
+    │           │   │   ├── compat
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   └── py39.py
+    │           │   │   ├── config
+    │           │   │   │   ├── downloads
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   └── preload.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── setupcfg_examples.txt
+    │           │   │   │   ├── test_apply_pyprojecttoml.py
+    │           │   │   │   ├── test_expand.py
+    │           │   │   │   ├── test_pyprojecttoml_dynamic_deps.py
+    │           │   │   │   ├── test_pyprojecttoml.py
+    │           │   │   │   └── test_setupcfg.py
+    │           │   │   ├── contexts.py
+    │           │   │   ├── environment.py
+    │           │   │   ├── fixtures.py
+    │           │   │   ├── indexes
+    │           │   │   │   └── test_links_priority
+    │           │   │   │       ├── external.html
+    │           │   │   │       └── simple
+    │           │   │   │           └── foobar
+    │           │   │   │               └── index.html
+    │           │   │   ├── __init__.py
+    │           │   │   ├── integration
+    │           │   │   │   ├── helpers.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── test_pbr.py
+    │           │   │   │   └── test_pip_install_sdist.py
+    │           │   │   ├── mod_with_constant.py
+    │           │   │   ├── namespaces.py
+    │           │   │   ├── script-with-bom.py
+    │           │   │   ├── test_archive_util.py
+    │           │   │   ├── test_bdist_deprecations.py
+    │           │   │   ├── test_bdist_egg.py
+    │           │   │   ├── test_bdist_wheel.py
+    │           │   │   ├── test_build_clib.py
+    │           │   │   ├── test_build_ext.py
+    │           │   │   ├── test_build_meta.py
+    │           │   │   ├── test_build.py
+    │           │   │   ├── test_build_py.py
+    │           │   │   ├── test_config_discovery.py
+    │           │   │   ├── test_core_metadata.py
+    │           │   │   ├── test_depends.py
+    │           │   │   ├── test_develop.py
+    │           │   │   ├── test_dist_info.py
+    │           │   │   ├── test_dist.py
+    │           │   │   ├── test_distutils_adoption.py
+    │           │   │   ├── test_editable_install.py
+    │           │   │   ├── test_egg_info.py
+    │           │   │   ├── test_extern.py
+    │           │   │   ├── test_find_packages.py
+    │           │   │   ├── test_find_py_modules.py
+    │           │   │   ├── test_glob.py
+    │           │   │   ├── test_install_scripts.py
+    │           │   │   ├── test_logging.py
+    │           │   │   ├── test_manifest.py
+    │           │   │   ├── test_namespaces.py
+    │           │   │   ├── test_scripts.py
+    │           │   │   ├── test_sdist.py
+    │           │   │   ├── test_setopt.py
+    │           │   │   ├── test_setuptools.py
+    │           │   │   ├── test_shutil_wrapper.py
+    │           │   │   ├── test_unicode_utils.py
+    │           │   │   ├── test_virtualenv.py
+    │           │   │   ├── test_warnings.py
+    │           │   │   ├── test_wheel.py
+    │           │   │   ├── test_windows_wrappers.py
+    │           │   │   ├── text.py
+    │           │   │   └── textwrap.py
+    │           │   ├── unicode_utils.py
+    │           │   ├── _vendor
+    │           │   │   ├── autocommand
+    │           │   │   │   ├── autoasync.py
+    │           │   │   │   ├── autocommand.py
+    │           │   │   │   ├── automain.py
+    │           │   │   │   ├── autoparse.py
+    │           │   │   │   ├── errors.py
+    │           │   │   │   └── __init__.py
+    │           │   │   ├── autocommand-2.2.2.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── backports
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   └── tarfile
+    │           │   │   │       ├── compat
+    │           │   │   │       │   ├── __init__.py
+    │           │   │   │       │   └── py38.py
+    │           │   │   │       ├── __init__.py
+    │           │   │   │       └── __main__.py
+    │           │   │   ├── backports.tarfile-1.2.0.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── importlib_metadata
+    │           │   │   │   ├── _adapters.py
+    │           │   │   │   ├── _collections.py
+    │           │   │   │   ├── compat
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   ├── py311.py
+    │           │   │   │   │   └── py39.py
+    │           │   │   │   ├── _compat.py
+    │           │   │   │   ├── diagnose.py
+    │           │   │   │   ├── _functools.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── _itertools.py
+    │           │   │   │   ├── _meta.py
+    │           │   │   │   ├── py.typed
+    │           │   │   │   └── _text.py
+    │           │   │   ├── importlib_metadata-8.0.0.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── inflect
+    │           │   │   │   ├── compat
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   └── py38.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   └── py.typed
+    │           │   │   ├── inflect-7.3.1.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── jaraco
+    │           │   │   │   ├── collections
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   └── py.typed
+    │           │   │   │   ├── context.py
+    │           │   │   │   ├── functools
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   ├── __init__.pyi
+    │           │   │   │   │   └── py.typed
+    │           │   │   │   └── text
+    │           │   │   │       ├── __init__.py
+    │           │   │   │       ├── layouts.py
+    │           │   │   │       ├── Lorem ipsum.txt
+    │           │   │   │       ├── show-newlines.py
+    │           │   │   │       ├── strip-prefix.py
+    │           │   │   │       ├── to-dvorak.py
+    │           │   │   │       └── to-qwerty.py
+    │           │   │   ├── jaraco.collections-5.1.0.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── jaraco.context-5.3.0.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── jaraco.functools-4.0.1.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── jaraco.text-3.12.1.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── more_itertools
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── __init__.pyi
+    │           │   │   │   ├── more.py
+    │           │   │   │   ├── more.pyi
+    │           │   │   │   ├── py.typed
+    │           │   │   │   ├── recipes.py
+    │           │   │   │   └── recipes.pyi
+    │           │   │   ├── more_itertools-10.3.0.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── packaging
+    │           │   │   │   ├── _elffile.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── licenses
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   └── _spdx.py
+    │           │   │   │   ├── _manylinux.py
+    │           │   │   │   ├── markers.py
+    │           │   │   │   ├── metadata.py
+    │           │   │   │   ├── _musllinux.py
+    │           │   │   │   ├── _parser.py
+    │           │   │   │   ├── py.typed
+    │           │   │   │   ├── requirements.py
+    │           │   │   │   ├── specifiers.py
+    │           │   │   │   ├── _structures.py
+    │           │   │   │   ├── tags.py
+    │           │   │   │   ├── _tokenizer.py
+    │           │   │   │   ├── utils.py
+    │           │   │   │   └── version.py
+    │           │   │   ├── packaging-24.2.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── LICENSE.APACHE
+    │           │   │   │   ├── LICENSE.BSD
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── platformdirs
+    │           │   │   │   ├── android.py
+    │           │   │   │   ├── api.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── macos.py
+    │           │   │   │   ├── __main__.py
+    │           │   │   │   ├── py.typed
+    │           │   │   │   ├── unix.py
+    │           │   │   │   ├── version.py
+    │           │   │   │   └── windows.py
+    │           │   │   ├── platformdirs-4.2.2.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── licenses
+    │           │   │   │   │   └── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── tomli
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── _parser.py
+    │           │   │   │   ├── py.typed
+    │           │   │   │   ├── _re.py
+    │           │   │   │   └── _types.py
+    │           │   │   ├── tomli-2.0.1.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── typeguard
+    │           │   │   │   ├── _checkers.py
+    │           │   │   │   ├── _config.py
+    │           │   │   │   ├── _decorators.py
+    │           │   │   │   ├── _exceptions.py
+    │           │   │   │   ├── _functions.py
+    │           │   │   │   ├── _importhook.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── _memo.py
+    │           │   │   │   ├── _pytest_plugin.py
+    │           │   │   │   ├── py.typed
+    │           │   │   │   ├── _suppression.py
+    │           │   │   │   ├── _transformer.py
+    │           │   │   │   ├── _union_transformer.py
+    │           │   │   │   └── _utils.py
+    │           │   │   ├── typeguard-4.3.0.dist-info
+    │           │   │   │   ├── entry_points.txt
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── top_level.txt
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── typing_extensions-4.12.2.dist-info
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── typing_extensions.py
+    │           │   │   ├── wheel
+    │           │   │   │   ├── _bdist_wheel.py
+    │           │   │   │   ├── bdist_wheel.py
+    │           │   │   │   ├── cli
+    │           │   │   │   │   ├── convert.py
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   ├── pack.py
+    │           │   │   │   │   ├── tags.py
+    │           │   │   │   │   └── unpack.py
+    │           │   │   │   ├── __init__.py
+    │           │   │   │   ├── macosx_libfile.py
+    │           │   │   │   ├── __main__.py
+    │           │   │   │   ├── metadata.py
+    │           │   │   │   ├── _setuptools_logging.py
+    │           │   │   │   ├── util.py
+    │           │   │   │   ├── vendored
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   ├── packaging
+    │           │   │   │   │   │   ├── _elffile.py
+    │           │   │   │   │   │   ├── __init__.py
+    │           │   │   │   │   │   ├── LICENSE
+    │           │   │   │   │   │   ├── LICENSE.APACHE
+    │           │   │   │   │   │   ├── LICENSE.BSD
+    │           │   │   │   │   │   ├── _manylinux.py
+    │           │   │   │   │   │   ├── markers.py
+    │           │   │   │   │   │   ├── _musllinux.py
+    │           │   │   │   │   │   ├── _parser.py
+    │           │   │   │   │   │   ├── requirements.py
+    │           │   │   │   │   │   ├── specifiers.py
+    │           │   │   │   │   │   ├── _structures.py
+    │           │   │   │   │   │   ├── tags.py
+    │           │   │   │   │   │   ├── _tokenizer.py
+    │           │   │   │   │   │   ├── utils.py
+    │           │   │   │   │   │   └── version.py
+    │           │   │   │   │   └── vendor.txt
+    │           │   │   │   └── wheelfile.py
+    │           │   │   ├── wheel-0.45.1.dist-info
+    │           │   │   │   ├── entry_points.txt
+    │           │   │   │   ├── INSTALLER
+    │           │   │   │   ├── LICENSE.txt
+    │           │   │   │   ├── METADATA
+    │           │   │   │   ├── RECORD
+    │           │   │   │   ├── REQUESTED
+    │           │   │   │   └── WHEEL
+    │           │   │   ├── zipp
+    │           │   │   │   ├── compat
+    │           │   │   │   │   ├── __init__.py
+    │           │   │   │   │   └── py310.py
+    │           │   │   │   ├── glob.py
+    │           │   │   │   └── __init__.py
+    │           │   │   └── zipp-3.19.2.dist-info
+    │           │   │       ├── INSTALLER
+    │           │   │       ├── LICENSE
+    │           │   │       ├── METADATA
+    │           │   │       ├── RECORD
+    │           │   │       ├── REQUESTED
+    │           │   │       ├── top_level.txt
+    │           │   │       └── WHEEL
+    │           │   ├── version.py
+    │           │   ├── warnings.py
+    │           │   ├── wheel.py
+    │           │   └── windows_support.py
+    │           ├── setuptools-80.9.0.dist-info
+    │           │   ├── entry_points.txt
+    │           │   ├── INSTALLER
+    │           │   ├── licenses
+    │           │   │   └── LICENSE
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   ├── REQUESTED
+    │           │   ├── top_level.txt
+    │           │   └── WHEEL
+    │           ├── typing_extensions-4.14.0.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── licenses
+    │           │   │   └── LICENSE
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   └── WHEEL
+    │           ├── typing_extensions.py
+    │           ├── typing_inspection
+    │           │   ├── __init__.py
+    │           │   ├── introspection.py
+    │           │   ├── py.typed
+    │           │   ├── typing_objects.py
+    │           │   └── typing_objects.pyi
+    │           ├── typing_inspection-0.4.1.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── licenses
+    │           │   │   └── LICENSE
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   └── WHEEL
     │           ├── urllib3
     │           │   ├── _base_connection.py
     │           │   ├── _collections.py
@@ -1542,19 +2411,9 @@
     │           │   │   │   ├── emscripten_fetch_worker.js
     │           │   │   │   ├── fetch.py
     │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __pycache__
-    │           │   │   │   │   ├── connection.cpython-312.pyc
-    │           │   │   │   │   ├── fetch.cpython-312.pyc
-    │           │   │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   │   ├── request.cpython-312.pyc
-    │           │   │   │   │   └── response.cpython-312.pyc
     │           │   │   │   ├── request.py
     │           │   │   │   └── response.py
     │           │   │   ├── __init__.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── pyopenssl.cpython-312.pyc
-    │           │   │   │   └── socks.cpython-312.pyc
     │           │   │   ├── pyopenssl.py
     │           │   │   └── socks.py
     │           │   ├── exceptions.py
@@ -1563,26 +2422,9 @@
     │           │   ├── http2
     │           │   │   ├── connection.py
     │           │   │   ├── __init__.py
-    │           │   │   ├── probe.py
-    │           │   │   └── __pycache__
-    │           │   │       ├── connection.cpython-312.pyc
-    │           │   │       ├── __init__.cpython-312.pyc
-    │           │   │       └── probe.cpython-312.pyc
+    │           │   │   └── probe.py
     │           │   ├── __init__.py
     │           │   ├── poolmanager.py
-    │           │   ├── __pycache__
-    │           │   │   ├── _base_connection.cpython-312.pyc
-    │           │   │   ├── _collections.cpython-312.pyc
-    │           │   │   ├── connection.cpython-312.pyc
-    │           │   │   ├── connectionpool.cpython-312.pyc
-    │           │   │   ├── exceptions.cpython-312.pyc
-    │           │   │   ├── fields.cpython-312.pyc
-    │           │   │   ├── filepost.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── poolmanager.cpython-312.pyc
-    │           │   │   ├── _request_methods.cpython-312.pyc
-    │           │   │   ├── response.cpython-312.pyc
-    │           │   │   └── _version.cpython-312.pyc
     │           │   ├── py.typed
     │           │   ├── _request_methods.py
     │           │   ├── response.py
@@ -1590,20 +2432,6 @@
     │           │   │   ├── connection.py
     │           │   │   ├── __init__.py
     │           │   │   ├── proxy.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── connection.cpython-312.pyc
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── proxy.cpython-312.pyc
-    │           │   │   │   ├── request.cpython-312.pyc
-    │           │   │   │   ├── response.cpython-312.pyc
-    │           │   │   │   ├── retry.cpython-312.pyc
-    │           │   │   │   ├── ssl_.cpython-312.pyc
-    │           │   │   │   ├── ssl_match_hostname.cpython-312.pyc
-    │           │   │   │   ├── ssltransport.cpython-312.pyc
-    │           │   │   │   ├── timeout.cpython-312.pyc
-    │           │   │   │   ├── url.cpython-312.pyc
-    │           │   │   │   ├── util.cpython-312.pyc
-    │           │   │   │   └── wait.cpython-312.pyc
     │           │   │   ├── request.py
     │           │   │   ├── response.py
     │           │   │   ├── retry.py
@@ -1633,28 +2461,11 @@
     │           │   │   ├── headers.py
     │           │   │   ├── __init__.py
     │           │   │   ├── mixins.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── accept.cpython-312.pyc
-    │           │   │   │   ├── auth.cpython-312.pyc
-    │           │   │   │   ├── cache_control.cpython-312.pyc
-    │           │   │   │   ├── csp.cpython-312.pyc
-    │           │   │   │   ├── etag.cpython-312.pyc
-    │           │   │   │   ├── file_storage.cpython-312.pyc
-    │           │   │   │   ├── headers.cpython-312.pyc
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── mixins.cpython-312.pyc
-    │           │   │   │   ├── range.cpython-312.pyc
-    │           │   │   │   └── structures.cpython-312.pyc
     │           │   │   ├── range.py
     │           │   │   └── structures.py
     │           │   ├── debug
     │           │   │   ├── console.py
     │           │   │   ├── __init__.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── console.cpython-312.pyc
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── repr.cpython-312.pyc
-    │           │   │   │   └── tbtools.cpython-312.pyc
     │           │   │   ├── repr.py
     │           │   │   ├── shared
     │           │   │   │   ├── console.png
@@ -1677,31 +2488,7 @@
     │           │   │   ├── lint.py
     │           │   │   ├── profiler.py
     │           │   │   ├── proxy_fix.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── dispatcher.cpython-312.pyc
-    │           │   │   │   ├── http_proxy.cpython-312.pyc
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── lint.cpython-312.pyc
-    │           │   │   │   ├── profiler.cpython-312.pyc
-    │           │   │   │   ├── proxy_fix.cpython-312.pyc
-    │           │   │   │   └── shared_data.cpython-312.pyc
     │           │   │   └── shared_data.py
-    │           │   ├── __pycache__
-    │           │   │   ├── exceptions.cpython-312.pyc
-    │           │   │   ├── formparser.cpython-312.pyc
-    │           │   │   ├── http.cpython-312.pyc
-    │           │   │   ├── __init__.cpython-312.pyc
-    │           │   │   ├── _internal.cpython-312.pyc
-    │           │   │   ├── local.cpython-312.pyc
-    │           │   │   ├── _reloader.cpython-312.pyc
-    │           │   │   ├── security.cpython-312.pyc
-    │           │   │   ├── serving.cpython-312.pyc
-    │           │   │   ├── testapp.cpython-312.pyc
-    │           │   │   ├── test.cpython-312.pyc
-    │           │   │   ├── urls.cpython-312.pyc
-    │           │   │   ├── user_agent.cpython-312.pyc
-    │           │   │   ├── utils.cpython-312.pyc
-    │           │   │   └── wsgi.cpython-312.pyc
     │           │   ├── py.typed
     │           │   ├── _reloader.py
     │           │   ├── routing
@@ -1710,25 +2497,11 @@
     │           │   │   ├── __init__.py
     │           │   │   ├── map.py
     │           │   │   ├── matcher.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── converters.cpython-312.pyc
-    │           │   │   │   ├── exceptions.cpython-312.pyc
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── map.cpython-312.pyc
-    │           │   │   │   ├── matcher.cpython-312.pyc
-    │           │   │   │   └── rules.cpython-312.pyc
     │           │   │   └── rules.py
     │           │   ├── sansio
     │           │   │   ├── http.py
     │           │   │   ├── __init__.py
     │           │   │   ├── multipart.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── http.cpython-312.pyc
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── multipart.cpython-312.pyc
-    │           │   │   │   ├── request.cpython-312.pyc
-    │           │   │   │   ├── response.cpython-312.pyc
-    │           │   │   │   └── utils.cpython-312.pyc
     │           │   │   ├── request.py
     │           │   │   ├── response.py
     │           │   │   └── utils.py
@@ -1741,20 +2514,82 @@
     │           │   ├── utils.py
     │           │   ├── wrappers
     │           │   │   ├── __init__.py
-    │           │   │   ├── __pycache__
-    │           │   │   │   ├── __init__.cpython-312.pyc
-    │           │   │   │   ├── request.cpython-312.pyc
-    │           │   │   │   └── response.cpython-312.pyc
     │           │   │   ├── request.py
     │           │   │   └── response.py
     │           │   └── wsgi.py
-    │           └── werkzeug-3.1.3.dist-info
-    │               ├── INSTALLER
-    │               ├── LICENSE.txt
-    │               ├── METADATA
-    │               ├── RECORD
-    │               └── WHEEL
+    │           ├── werkzeug-3.1.3.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── LICENSE.txt
+    │           │   ├── METADATA
+    │           │   ├── RECORD
+    │           │   └── WHEEL
+    │           ├── zope
+    │           │   └── interface
+    │           │       ├── adapter.py
+    │           │       ├── advice.py
+    │           │       ├── common
+    │           │       │   ├── builtins.py
+    │           │       │   ├── collections.py
+    │           │       │   ├── idatetime.py
+    │           │       │   ├── __init__.py
+    │           │       │   ├── interfaces.py
+    │           │       │   ├── io.py
+    │           │       │   ├── mapping.py
+    │           │       │   ├── numbers.py
+    │           │       │   ├── sequence.py
+    │           │       │   └── tests
+    │           │       │       ├── basemapping.py
+    │           │       │       ├── __init__.py
+    │           │       │       ├── test_builtins.py
+    │           │       │       ├── test_collections.py
+    │           │       │       ├── test_idatetime.py
+    │           │       │       ├── test_import_interfaces.py
+    │           │       │       ├── test_io.py
+    │           │       │       └── test_numbers.py
+    │           │       ├── _compat.py
+    │           │       ├── declarations.py
+    │           │       ├── document.py
+    │           │       ├── exceptions.py
+    │           │       ├── _flatten.py
+    │           │       ├── __init__.py
+    │           │       ├── interface.py
+    │           │       ├── interfaces.py
+    │           │       ├── registry.py
+    │           │       ├── ro.py
+    │           │       ├── tests
+    │           │       │   ├── advisory_testing.py
+    │           │       │   ├── dummy.py
+    │           │       │   ├── idummy.py
+    │           │       │   ├── __init__.py
+    │           │       │   ├── m1.py
+    │           │       │   ├── odd.py
+    │           │       │   ├── test_adapter.py
+    │           │       │   ├── test_advice.py
+    │           │       │   ├── test_compile_flags.py
+    │           │       │   ├── test_declarations.py
+    │           │       │   ├── test_document.py
+    │           │       │   ├── test_element.py
+    │           │       │   ├── test_exceptions.py
+    │           │       │   ├── test_interface.py
+    │           │       │   ├── test_interfaces.py
+    │           │       │   ├── test_odd_declarations.py
+    │           │       │   ├── test_registry.py
+    │           │       │   ├── test_ro.py
+    │           │       │   ├── test_sorting.py
+    │           │       │   └── test_verify.py
+    │           │       ├── verify.py
+    │           │       ├── _zope_interface_coptimizations.c
+    │           │       └── _zope_interface_coptimizations.cpython-312-x86_64-linux-gnu.so
+    │           ├── zope.interface-7.2.dist-info
+    │           │   ├── INSTALLER
+    │           │   ├── LICENSE.txt
+    │           │   ├── METADATA
+    │           │   ├── namespace_packages.txt
+    │           │   ├── RECORD
+    │           │   ├── top_level.txt
+    │           │   └── WHEEL
+    │           └── zope.interface-7.2-py3.12-nspkg.pth
     ├── lib64 -> lib
     └── pyvenv.cfg
 
-206 directories, 1552 files
+304 directories, 2289 files
