@@ -146,13 +146,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ---
 
-## 📬 Contact
 
-For inquiries or support, open an issue on GitHub or contact the maintainer directly.
-
-```
-
----
-
-If you want, I can help you generate a full CONTRIBUTING.md file or add example responses for the API!
-```
