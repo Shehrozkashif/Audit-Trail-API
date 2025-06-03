@@ -2,203 +2,810 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Audit Trail Logger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Trail Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f2f4f8;
+        :root {
+            --primary: #4361ee;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #f72585;
+            --dark: #212529;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
         }
-
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
         .container {
-            max-width: 700px;
-            margin-top: 60px;
-            background: #fff;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 25px;
-        }
-
-        form, .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], input[type="date"], select {
-            padding: 10px 12px;
-            font-size: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            flex: 1;
-        }
-
-        button {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 16px;
-            font-size: 15px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-
-        ul#logs {
-            list-style: none;
-            padding: 0;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        ul#logs li {
-            background: #ecf0f1;
-            margin-bottom: 10px;
-            padding: 12px 16px;
-            border-left: 6px solid #3498db;
-            border-radius: 6px;
-            font-size: 15px;
-        }
-
-        ul#logs li span {
-            display: block;
-            font-size: 13px;
-            color: #555;
-            margin-top: 5px;
-        }
-
-        .btn-row {
+        
+        header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-card .value {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        
+        .stat-card .label {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .stat-card.info { border-left: 4px solid var(--primary); }
+        .stat-card.success { border-left: 4px solid var(--success); }
+        .stat-card.warning { border-left: 4px solid var(--warning); }
+        .stat-card.danger { border-left: 4px solid var(--danger); }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        input, select, button {
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        button.secondary {
+            background-color: #6c757d;
+        }
+        
+        button.danger {
+            background-color: var(--danger);
+        }
+        
+        .logs-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .log-header {
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr 120px 100px;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            font-weight: bold;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .log-entry {
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr 120px 100px;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.2s;
+        }
+        
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .log-entry:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .log-type {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .type-info { background-color: #e3f2fd; color: var(--primary); }
+        .type-success { background-color: #e3f2fd; color: var(--success); }
+        .type-warning { background-color: #fff3cd; color: var(--warning); }
+        .type-danger { background-color: #f8d7da; color: var(--danger); }
+        
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .page-info {
+            color: #6c757d;
+        }
+        
+        .page-controls {
+            display: flex;
             gap: 10px;
         }
-
-        .btn-row button {
-            flex: 1;
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .toast.error {
+            background: var(--danger);
+        }
+        
+        .toast.success {
+            background: var(--success);
+        }
+        
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .modal h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-group textarea {
+            min-height: 80px;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .log-header, .log-entry {
+                grid-template-columns: 80px 1fr 1fr 100px;
+            }
+            
+            .log-time {
+                display: none;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Audit Trail Logger</h1>
-
-        <!-- Log Entry Form -->
-        <form id="logForm">
-            <input type="text" id="user" placeholder="Enter user" required />
-            <input type="text" id="action" placeholder="Enter action" required />
-            <select id="logType">
-                <option value="info">Info</option>
-                <option value="warning">Warning</option>
-                <option value="error">Error</option>
-            </select>
-            <button type="submit">Log Action</button>
-        </form>
-
-        <!-- Filters -->
-        <div class="filters">
-            <input type="text" id="search" placeholder="Search user or action" />
-            <input type="date" id="fromDate" />
-            <input type="date" id="toDate" />
+        <header>
+            <h1><i class="fas fa-clipboard-list"></i> Audit Trail Dashboard</h1>
+            <div class="api-status">
+                <span id="apiStatus" class="status-indicator">
+                    <i class="fas fa-circle"></i> Connecting...
+                </span>
+            </div>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-card info">
+                <div class="value" id="totalLogs">0</div>
+                <div class="label">Total Logs</div>
+            </div>
+            <div class="stat-card success">
+                <div class="value" id="infoLogs">0</div>
+                <div class="label">Info Logs</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="value" id="warningLogs">0</div>
+                <div class="label">Warning Logs</div>
+            </div>
+            <div class="stat-card danger">
+                <div class="value" id="errorLogs">0</div>
+                <div class="label">Error Logs</div>
+            </div>
         </div>
-
-        <!-- Buttons -->
-        <div class="btn-row">
-            <button onclick="fetchLogs()">Refresh Logs</button>
-            <button onclick="exportLogs()">Export Logs</button>
-            <button onclick="clearLogs()">Clear Logs</button>
+        
+        <div class="controls">
+            <div class="filter-group">
+                <label for="search"><i class="fas fa-search"></i></label>
+                <input type="text" id="search" placeholder="Search logs...">
+            </div>
+            
+            <div class="filter-group">
+                <label for="userFilter"><i class="fas fa-user"></i></label>
+                <select id="userFilter">
+                    <option value="">All Users</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="typeFilter"><i class="fas fa-filter"></i></label>
+                <select id="typeFilter">
+                    <option value="">All Types</option>
+                    <option value="info">Info</option>
+                    <option value="warning">Warning</option>
+                    <option value="error">Error</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="dateFrom"><i class="fas fa-calendar-alt"></i></label>
+                <input type="date" id="dateFrom">
+                <span>to</span>
+                <input type="date" id="dateTo">
+            </div>
         </div>
-
-        <ul id="logs"></ul>
+        
+        <div class="controls">
+            <button id="refreshBtn"><i class="fas fa-sync-alt"></i> Refresh</button>
+            <button id="exportBtn"><i class="fas fa-file-export"></i> Export</button>
+            <button id="addLogBtn"><i class="fas fa-plus"></i> Add Log</button>
+            <button class="secondary" id="clearFiltersBtn"><i class="fas fa-broom"></i> Clear Filters</button>
+            <button class="danger" id="clearLogsBtn"><i class="fas fa-trash"></i> Clear All Logs</button>
+        </div>
+        
+        <div class="logs-container">
+            <div class="log-header">
+                <div>Type</div>
+                <div>User</div>
+                <div>Action</div>
+                <div class="log-time">Time</div>
+                <div>Details</div>
+            </div>
+            <div id="logsList"></div>
+        </div>
+        
+        <div class="pagination">
+            <div class="page-info">
+                Showing <span id="startItem">0</span>-<span id="endItem">0</span> of <span id="totalItems">0</span> logs
+            </div>
+            <div class="page-controls">
+                <button id="prevPage" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                <button id="nextPage" disabled>Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
     </div>
-
+    
+    <!-- Add Log Modal -->
+    <div id="addLogModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Add New Log Entry</h2>
+            <form id="logForm">
+                <div class="form-group">
+                    <label for="newUser">User</label>
+                    <input type="text" id="newUser" required>
+                </div>
+                <div class="form-group">
+                    <label for="newAction">Action</label>
+                    <input type="text" id="newAction" required>
+                </div>
+                <div class="form-group">
+                    <label for="newType">Type</label>
+                    <select id="newType" required>
+                        <option value="info">Info</option>
+                        <option value="warning">Warning</option>
+                        <option value="error">Error</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="newDetails">Details (Optional)</label>
+                    <textarea id="newDetails" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelAddLog">Cancel</button>
+                    <button type="submit">Add Log</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="toast" class="toast"></div>
+    
     <script>
+        // Configuration
+        const API_BASE_URL = 'http://localhost:5000/api';
+        const API_KEY = 'default-secure-key';
+        const ITEMS_PER_PAGE = 15;
+        
+        // State management
+        let currentPage = 1;
         let allLogs = [];
-
-        document.getElementById("logForm").onsubmit = async function (e) {
-            e.preventDefault();
-            const user = document.getElementById("user").value;
-            const action = document.getElementById("action").value;
-            const type = document.getElementById("logType").value;
-
-            await fetch("http://127.0.0.1:5000/log", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ user, action, type })
-            });
-
-            document.getElementById("logForm").reset();
-            fetchLogs();
+        let filteredLogs = [];
+        let users = [];
+        
+        // DOM elements
+        const elements = {
+            logsList: document.getElementById('logsList'),
+            search: document.getElementById('search'),
+            userFilter: document.getElementById('userFilter'),
+            typeFilter: document.getElementById('typeFilter'),
+            dateFrom: document.getElementById('dateFrom'),
+            dateTo: document.getElementById('dateTo'),
+            refreshBtn: document.getElementById('refreshBtn'),
+            exportBtn: document.getElementById('exportBtn'),
+            addLogBtn: document.getElementById('addLogBtn'),
+            clearFiltersBtn: document.getElementById('clearFiltersBtn'),
+            clearLogsBtn: document.getElementById('clearLogsBtn'),
+            prevPage: document.getElementById('prevPage'),
+            nextPage: document.getElementById('nextPage'),
+            startItem: document.getElementById('startItem'),
+            endItem: document.getElementById('endItem'),
+            totalItems: document.getElementById('totalItems'),
+            totalLogs: document.getElementById('totalLogs'),
+            infoLogs: document.getElementById('infoLogs'),
+            warningLogs: document.getElementById('warningLogs'),
+            errorLogs: document.getElementById('errorLogs'),
+            apiStatus: document.getElementById('apiStatus'),
+            toast: document.getElementById('toast'),
+            addLogModal: document.getElementById('addLogModal'),
+            logForm: document.getElementById('logForm'),
+            cancelAddLog: document.getElementById('cancelAddLog'),
+            newUser: document.getElementById('newUser'),
+            newAction: document.getElementById('newAction'),
+            newType: document.getElementById('newType'),
+            newDetails: document.getElementById('newDetails')
         };
-
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', async () => {
+            await setupEventListeners();
+            await checkApiStatus();
+            await fetchLogs();
+            
+            // Set default dates (last 7 days)
+            const today = new Date();
+            const weekAgo = new Date();
+            weekAgo.setDate(today.getDate() - 7);
+            
+            elements.dateFrom.valueAsDate = weekAgo;
+            elements.dateTo.valueAsDate = today;
+        });
+        
+        async function setupEventListeners() {
+            // Filter controls
+            elements.search.addEventListener('input', applyFilters);
+            elements.userFilter.addEventListener('change', applyFilters);
+            elements.typeFilter.addEventListener('change', applyFilters);
+            elements.dateFrom.addEventListener('change', applyFilters);
+            elements.dateTo.addEventListener('change', applyFilters);
+            
+            // Action buttons
+            elements.refreshBtn.addEventListener('click', fetchLogs);
+            elements.exportBtn.addEventListener('click', exportLogs);
+            elements.addLogBtn.addEventListener('click', showAddLogModal);
+            elements.clearFiltersBtn.addEventListener('click', clearFilters);
+            elements.clearLogsBtn.addEventListener('click', confirmClearLogs);
+            
+            // Pagination
+            elements.prevPage.addEventListener('click', goToPreviousPage);
+            elements.nextPage.addEventListener('click', goToNextPage);
+            
+            // Modal
+            elements.cancelAddLog.addEventListener('click', hideAddLogModal);
+            elements.logForm.addEventListener('submit', handleAddLog);
+        }
+        
+        async function checkApiStatus() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/stats`);
+                if (response.ok) {
+                    elements.apiStatus.innerHTML = '<i class="fas fa-circle" style="color: #4ade80;"></i> API Connected';
+                    return true;
+                }
+                throw new Error('API returned non-OK status');
+            } catch (error) {
+                elements.apiStatus.innerHTML = '<i class="fas fa-circle" style="color: #f87171;"></i> API Offline';
+                showToast('Failed to connect to API', 'error');
+                return false;
+            }
+        }
+        
         async function fetchLogs() {
-            const res = await fetch("http://127.0.0.1:5000/logs");
-            allLogs = await res.json();
+            try {
+                showToast('Loading logs...', 'info');
+                
+                const params = new URLSearchParams();
+                if (elements.userFilter.value) params.append('user', elements.userFilter.value);
+                if (elements.typeFilter.value) params.append('type', elements.typeFilter.value);
+                if (elements.dateFrom.value) params.append('from', elements.dateFrom.value);
+                if (elements.dateTo.value) params.append('to', elements.dateTo.value);
+                
+                const [logsResponse, statsResponse] = await Promise.all([
+                    fetch(`${API_BASE_URL}/logs?${params.toString()}`),
+                    fetch(`${API_BASE_URL}/stats`)
+                ]);
+                
+                if (!logsResponse.ok || !statsResponse.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                
+                allLogs = await logsResponse.json();
+                const stats = await statsResponse.json();
+                
+                updateStats(stats);
+                updateUserFilter(allLogs);
+                applyFilters();
+                
+                showToast('Logs loaded successfully', 'success');
+            } catch (error) {
+                console.error('Error fetching logs:', error);
+                showToast('Failed to load logs: ' + error.message, 'error');
+            }
+        }
+        
+        function updateStats(stats) {
+            elements.totalLogs.textContent = stats.total;
+            elements.infoLogs.textContent = stats.info;
+            elements.warningLogs.textContent = stats.warning;
+            elements.errorLogs.textContent = stats.error;
+        }
+        
+        function updateUserFilter(logs) {
+            const uniqueUsers = [...new Set(logs.map(log => log.user))];
+            users = uniqueUsers;
+            
+            elements.userFilter.innerHTML = '<option value="">All Users</option>';
+            uniqueUsers.forEach(user => {
+                const option = document.createElement('option');
+                option.value = user;
+                option.textContent = user;
+                elements.userFilter.appendChild(option);
+            });
+        }
+        
+        function applyFilters() {
+            const searchTerm = elements.search.value.toLowerCase();
+            const selectedUser = elements.userFilter.value;
+            const selectedType = elements.typeFilter.value;
+            const dateFrom = elements.dateFrom.value;
+            const dateTo = elements.dateTo.value;
+            
+            filteredLogs = allLogs.filter(log => {
+                // Search filter
+                if (searchTerm && 
+                    !log.user?.toLowerCase().includes(searchTerm) && 
+                    !log.action?.toLowerCase().includes(searchTerm)) {
+                    return false;
+                }
+                
+                // User filter
+                if (selectedUser && log.user !== selectedUser) {
+                    return false;
+                }
+                
+                // Type filter
+                if (selectedType && log.type !== selectedType) {
+                    return false;
+                }
+                
+                // Date filter
+                const logDate = log.timestamp?.split('T')[0];
+                if (dateFrom && logDate < dateFrom) return false;
+                if (dateTo && logDate > dateTo) return false;
+                
+                return true;
+            });
+            
+            currentPage = 1;
             displayLogs();
         }
-
+        
         function displayLogs() {
-            const search = document.getElementById("search").value.toLowerCase();
-            const fromDate = document.getElementById("fromDate").value;
-            const toDate = document.getElementById("toDate").value;
-            const list = document.getElementById("logs");
-            list.innerHTML = "";
-
-            allLogs
-                .filter(log => {
-                    const matchSearch =
-                        log.user.toLowerCase().includes(search) ||
-                        log.action.toLowerCase().includes(search);
-                    const logDate = new Date(log.timestamp).toISOString().split("T")[0];
-                    const afterFrom = !fromDate || logDate >= fromDate;
-                    const beforeTo = !toDate || logDate <= toDate;
-                    return matchSearch && afterFrom && beforeTo;
-                })
-                .reverse()
-                .forEach(log => {
-                    const li = document.createElement("li");
-                    li.innerHTML = `
-                        <strong>${log.user}</strong> (${log.type.toUpperCase()}): ${log.action}
-                        <span>${new Date(log.timestamp).toLocaleString()}</span>`;
-                    list.appendChild(li);
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+            const paginatedLogs = filteredLogs.slice(startIndex, endIndex);
+            
+            elements.logsList.innerHTML = '';
+            
+            if (paginatedLogs.length === 0) {
+                elements.logsList.innerHTML = `
+                    <div class="log-entry" style="grid-column: 1/-1; text-align: center;">
+                        No logs found matching your criteria
+                    </div>`;
+            } else {
+                paginatedLogs.forEach(log => {
+                    const logElement = document.createElement('div');
+                    logElement.className = 'log-entry';
+                    logElement.innerHTML = `
+                        <div><span class="log-type type-${log.type}">${log.type}</span></div>
+                        <div>${log.user || 'System'}</div>
+                        <div>${log.action || 'No action specified'}</div>
+                        <div class="log-time">${formatDateTime(log.timestamp)}</div>
+                        <div>${log.details || '-'}</div>
+                    `;
+                    elements.logsList.appendChild(logElement);
                 });
+            }
+            
+            updatePaginationInfo();
         }
-
-        function exportLogs() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allLogs, null, 2));
-            const a = document.createElement("a");
-            a.setAttribute("href", dataStr);
-            a.setAttribute("download", "audit_log.json");
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
+        
+        function updatePaginationInfo() {
+            const totalItems = filteredLogs.length;
+            const startItem = Math.min((currentPage - 1) * ITEMS_PER_PAGE + 1, totalItems);
+            const endItem = Math.min(currentPage * ITEMS_PER_PAGE, totalItems);
+            
+            elements.startItem.textContent = startItem;
+            elements.endItem.textContent = endItem;
+            elements.totalItems.textContent = totalItems;
+            
+            elements.prevPage.disabled = currentPage <= 1;
+            elements.nextPage.disabled = endItem >= totalItems;
         }
-
-        async function clearLogs() {
-            if (!confirm("Are you sure you want to delete all logs?")) return;
-
-            await fetch("http://127.0.0.1:5000/clear", { method: "POST" });
-            fetchLogs();
+        
+        function goToPreviousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayLogs();
+            }
         }
-
-        document.getElementById("search").oninput =
-        document.getElementById("fromDate").onchange =
-        document.getElementById("toDate").onchange = displayLogs;
-
-        fetchLogs();
+        
+        function goToNextPage() {
+            const totalPages = Math.ceil(filteredLogs.length / ITEMS_PER_PAGE);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayLogs();
+            }
+        }
+        
+        function clearFilters() {
+            elements.search.value = '';
+            elements.userFilter.value = '';
+            elements.typeFilter.value = '';
+            
+            const today = new Date();
+            const weekAgo = new Date();
+            weekAgo.setDate(today.getDate() - 7);
+            
+            elements.dateFrom.valueAsDate = weekAgo;
+            elements.dateTo.valueAsDate = today;
+            
+            applyFilters();
+        }
+        
+        async function exportLogs() {
+            try {
+                const blob = new Blob([JSON.stringify(filteredLogs, null, 2)], { 
+                    type: 'application/json' 
+                });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `audit_logs_${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showToast('Logs exported successfully', 'success');
+            } catch (error) {
+                console.error('Export failed:', error);
+                showToast('Failed to export logs', 'error');
+            }
+        }
+        
+        function showAddLogModal() {
+            elements.addLogModal.style.display = 'flex';
+            elements.newUser.focus();
+        }
+        
+        function hideAddLogModal() {
+            elements.addLogModal.style.display = 'none';
+            elements.logForm.reset();
+        }
+        
+        async function handleAddLog(e) {
+            e.preventDefault();
+            
+            const user = elements.newUser.value.trim();
+            const action = elements.newAction.value.trim();
+            const type = elements.newType.value;
+            const details = elements.newDetails.value.trim();
+            
+            if (!user || !action || !type) {
+                showToast('Please fill all required fields', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/log`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': API_KEY
+                    },
+                    body: JSON.stringify({
+                        user,
+                        action,
+                        type,
+                        details: details || undefined
+                    })
+                });
+                
+                if (!response.ok) {
+                    const error = await response.json().catch(() => ({}));
+                    throw new Error(error.message || 'Failed to add log');
+                }
+                
+                hideAddLogModal();
+                showToast('Log added successfully', 'success');
+                await fetchLogs();
+            } catch (error) {
+                console.error('Error adding log:', error);
+                showToast(error.message || 'Failed to add log', 'error');
+            }
+        }
+        
+        function confirmClearLogs() {
+            if (confirm('Are you sure you want to clear ALL logs? This cannot be undone.')) {
+                clearAllLogs();
+            }
+        }
+        
+        async function clearAllLogs() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/clear`, {
+                    method: 'POST',
+                    headers: {
+                        'X-API-KEY': API_KEY
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to clear logs');
+                }
+                
+                showToast('All logs cleared', 'success');
+                await fetchLogs();
+            } catch (error) {
+                console.error('Error clearing logs:', error);
+                showToast('Failed to clear logs', 'error');
+            }
+        }
+        
+        function formatDateTime(isoString) {
+            try {
+                if (!isoString) return 'N/A';
+                const date = new Date(isoString);
+                return isNaN(date.getTime()) ? 'Invalid date' : date.toLocaleString();
+            } catch {
+                return 'N/A';
+            }
+        }
+        
+        function showToast(message, type = 'info') {
+            elements.toast.textContent = message;
+            elements.toast.className = 'toast ' + type;
+            elements.toast.classList.add('show');
+            
+            setTimeout(() => {
+                elements.toast.classList.remove('show');
+            }, 3000);
+        }
     </script>
 </body>
 </html>

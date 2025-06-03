@@ -1,40 +1,103 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify
 from flask_cors import CORS
-from api.logger import AuditLogger
+from datetime import datetime
 import os
+from flask import Flask, render_template
 
-app = Flask(__name__, static_folder="frontend")  # Your frontend folder
-CORS(app)
-logger = AuditLogger()
+# Initialize Flask application
+application = Flask(__name__)
+CORS(application)  # Enable CORS for all routes
 
-@app.route("/log", methods=["POST"])
-def log_action():
-    data = request.get_json()
-    user = data.get("user")
-    action = data.get("action")
-    
-    if not user or not action:
-        return jsonify({"error": "user and action fields are required"}), 400
+# Configuration
+API_KEY = os.getenv("API_KEY", "default-secure-key")
 
-    entry = logger.log_action(user, action)
-    return jsonify(entry), 201
+# In-memory storage
+logs = []
 
-@app.route("/logs", methods=["GET"])
+@application.route('/api/log', methods=['POST'])
+def add_log():
+    try:
+        # Check API key
+        if request.headers.get('X-API-KEY') != API_KEY:
+            return jsonify({"error": "Unauthorized"}), 401
+            
+        data = request.json
+        required_fields = ['user', 'action', 'type']
+        
+        if not all(field in data for field in required_fields):
+            return jsonify({"error": "Missing required fields"}), 400
+            
+        new_log = {
+            'user': data['user'],
+            'action': data['action'],
+            'type': data['type'],
+            'timestamp': datetime.now().isoformat(),
+            'details': data.get('details', '')
+        }
+        
+        logs.append(new_log)
+        return jsonify(new_log), 201
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@application.route('/api/logs', methods=['GET'])
 def get_logs():
-    logs = logger.get_logs()
-    return jsonify(logs), 200
+    try:
+        # Get query parameters
+        user = request.args.get('user')
+        action = request.args.get('action')
+        log_type = request.args.get('type')
+        date_from = request.args.get('from')
+        date_to = request.args.get('to')
+        
+        # Filter logs
+        filtered_logs = logs
+        if user:
+            filtered_logs = [log for log in filtered_logs if log['user'] == user]
+        if action:
+            filtered_logs = [log for log in filtered_logs if action.lower() in log['action'].lower()]
+        if log_type:
+            filtered_logs = [log for log in filtered_logs if log['type'] == log_type]
+        if date_from:
+            filtered_logs = [log for log in filtered_logs if log['timestamp'].split('T')[0] >= date_from]
+        if date_to:
+            filtered_logs = [log for log in filtered_logs if log['timestamp'].split('T')[0] <= date_to]
+            
+        return jsonify(filtered_logs)
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-# New endpoint to clear logs
-@app.route("/clear", methods=["POST"])
+@application.route('/api/clear', methods=['POST'])
 def clear_logs():
-    # Clear the logs by overwriting with an empty list
-    with open(logger.storage_path, 'w') as f:
-        f.write("[]")
-    return jsonify({"status": "cleared"}), 200
+    try:
+        # Check API key
+        if request.headers.get('X-API-KEY') != API_KEY:
+            return jsonify({"error": "Unauthorized"}), 401
+            
+        logs.clear()
+        return jsonify({"message": "All logs cleared"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-@app.route("/", methods=["GET"])
-def serve_frontend():
-    return send_from_directory(app.static_folder, "index.html")
+@application.route('/api/stats', methods=['GET'])
+def get_stats():
+    try:
+        stats = {
+            'total': len(logs),
+            'info': len([log for log in logs if log['type'] == 'info']),
+            'warning': len([log for log in logs if log['type'] == 'warning']),
+            'error': len([log for log in logs if log['type'] == 'error'])
+        }
+        return jsonify(stats)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-if __name__ == "__main__":
-    app.run(debug=True)
+@application.route('/')
+def home():
+    return "Audit Trail API is running. Use /api endpoints to interact with the system."
+
+if __name__ == '__main__':
+    application.run(debug=True, port=5000, host='0.0.0.0')
+
