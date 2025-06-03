@@ -54,5 +54,11 @@
     "action": "attacking system",
     "timestamp": "2025-06-03T21:40:40.097517",
     "type": "error"
+  },
+  {
+    "user": "abiha",
+    "action": "login",
+    "timestamp": "2025-06-03T23:10:07.565301",
+    "type": "info"
   }
 ]

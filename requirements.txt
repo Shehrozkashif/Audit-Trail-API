@@ -1,4 +1,17 @@
-Flask==2.3.2
-requests==2.31.0
-pydantic>=1.10.0
-pytest>=6.0.0
+# Core dependencies
+setuptools>=42
+wheel
+twine
+
+# API and web-related
+flask
+requests
+
+# Logging and utilities
+loguru
+
+# Optional: for testing
+pytest
+
+# Optional: for JSON handling and validation (if used)
+jsonschema
