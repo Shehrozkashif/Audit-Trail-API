@@ -40,8 +40,8 @@ pip install audit-trail-lib
 
 ### From Source
 ```bash
-git clone https://github.com/Shehrozkashif/audit-trail-system.git
-cd audit-trail-system
+git clone [https://github.com/Shehrozkashif/audit-trail-system.git](https://github.com/Shehrozkashif/Audit-Trail-Library.git)
+cd Audit-Trail-Library
 pip install -e .
 ```
 
