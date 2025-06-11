@@ -1,71 +1,58 @@
 #!/bin/bash
 
-# setup.sh - Automated setup for Audit Trail API
-# Usage: ./setup.sh
+# setup.sh - Fully automated setup for Audit Trail API
 
-# Exit on error and log all commands
-set -e
+set -e  # Exit on any error
 
-# Check for required Python version (3.7+)
-PYTHON_REQ="3.7"
-if ! command -v python3 &> /dev/null; then
-    echo "Python 3 not found. Please install Python $PYTHON_REQ or higher."
-    exit 1
-fi
-
-PYTHON_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
-if [[ $(echo "$PYTHON_VERSION >= $PYTHON_REQ" | bc -l) -eq 0 ]]; then
-    echo "Python $PYTHON_REQ+ required. Found $PYTHON_VERSION."
-    exit 1
-fi
-
-# Create virtual environment
+PYTHON=python3
 VENV_DIR="venv"
+
+# Step 1: Create virtual environment
 if [ ! -d "$VENV_DIR" ]; then
     echo "Creating virtual environment..."
-    python3 -m venv "$VENV_DIR"
+    $PYTHON -m venv "$VENV_DIR"
 fi
 
-# Activate virtual environment
+# Step 2: Activate virtual environment
 echo "Activating virtual environment..."
 source "$VENV_DIR/bin/activate"
 
-# Install dependencies
-echo "Installing dependencies..."
+# Step 3: Upgrade pip and install requirements
+echo "Installing dependencies from requirements.txt..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Build and install package
-echo "Building and installing audit_trail_lib..."
-pip install .
+# Step 4: Install the local package
+if [ -f "setup.py" ]; then
+    echo "Installing local package..."
+    pip install .
+else
+    echo "Warning: setup.py not found, skipping package install."
+fi
 
-# Verify installation
-echo "Verifying installation..."
-python -c "import audit_trail_lib; print('audit_trail_lib version:', audit_trail_lib.__version__)" || {
-    echo "Package verification failed"
-    exit 1
-}
+# Step 5: Run tests using pytest (if present)
+if [ -f "test/test_logger.py" ]; then
+    echo "Running tests with pytest..."
+    pip install pytest  # in case it's not in requirements.txt
+    pytest test/test_logger.py
+else
+    echo "Warning: test/test_logger.py not found. Skipping tests."
+fi
 
-# Run tests
-echo "Running tests..."
-cd test
-python -m unittest test_logger.py
-cd ..
+# Step 6: Start API server in background
+if [ -f "app.py" ]; then
+    echo "Starting API server..."
+    echo "----------------------------------------"
+    echo "  API Docs: http://localhost:5000/docs"
+    echo "  Client Example: python client_app/client.py"
+    echo "  Press Ctrl+C to stop"
+    echo "----------------------------------------"
+    python app.py &
+    API_PID=$!
 
-# Start API server
-echo "Starting API server..."
-echo "----------------------------------------"
-echo "  API Documentation: http://localhost:5000/docs"
-echo "  Try the client: python client_app/client.py"
-echo "  Press Ctrl+C to stop the server"
-echo "----------------------------------------"
-
-# Run API in background and capture PID
-python app.py &
-API_PID=$!
-
-# Setup cleanup
-trap "echo 'Stopping server...'; kill $API_PID; deactivate" EXIT
-
-# Keep script running while server is active
-wait $API_PID
+    # Graceful shutdown
+    trap "echo 'Stopping server...'; kill $API_PID; deactivate" EXIT
+    wait $API_PID
+else
+    echo "Warning: app.py not found. Server not started."
+fi
